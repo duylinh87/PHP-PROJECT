@@ -1,0 +1,471 @@
+/*css fadeIn Up*/
+
+
+/*=================================================*/
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+#form07 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#form07 a:hover {
+    opacity: 0.6;
+}
+
+#form07 .flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#form07 .animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both
+}
+
+#form07 .js-fadein {
+    opacity: 0;
+}
+
+#form07 .scroll-in {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+#head-form {
+    padding: 40px 20px 0px;
+    margin-bottom: 100px;
+}
+
+#head-form {
+    display: flex;
+    align-items: center;
+}
+
+#head-form .text-head {
+    font-size: 26px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+#form07 {
+    position: relative;
+}
+
+#form07 .destop {
+    display: none;
+}
+
+#form07 .img-width {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+#form07 .form-main .inner {
+    /* border-right: 2px solid #cccc;
+    border-left: 2px solid #cccc; */
+    padding: 50px 15px;
+    max-width: 1720px;
+    margin: auto;
+    background: white;
+    /* border-bottom: 2px solid #707070; */
+}
+
+#title-page {
+    font-size: 26px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+
+/* line..................................................................... */
+
+
+/* form..................................................................... */
+
+#form07 .box-form {
+    max-width: 1100px;
+    margin: auto;
+}
+
+#form07 .title-form {
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+#form07 .info-item {
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 50px;
+}
+
+#form07 .box-form {
+    margin-bottom: 50px;
+}
+
+#form07 .box-form .text-info {
+    width: 75px;
+    justify-content: flex-end;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    padding-top: 10px;
+}
+
+#form07 .box-form .text-info.right {
+    justify-content: flex-start
+}
+
+#form07 .box-form .box-input {
+    width: 100%;
+    justify-content: center;
+}
+
+#form07 .box-form .info-item .item-check-box {
+    width: calc(100%/4);
+    align-items: center;
+    justify-content: center;
+}
+
+#form07 .box-form .check-box {
+    opacity: 0;
+    width: 22px;
+}
+
+#form07 .box-form .check-box:active {
+    outline: none;
+}
+
+#form07 .box-form .label-check-box {
+    padding-left: 10px;
+    position: relative;
+    font-size: 24px;
+    outline: none;
+}
+
+#form07 .box-form .check-box:checked~.label-check-box:after {
+    display: block;
+}
+
+#form07 .box-form .label-check-box:before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    top: 5.5px;
+    left: -25px;
+    pointer-events: none;
+}
+
+#form07 .box-form .label-check-box:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #434343;
+    border-radius: 50%;
+    top: 13px;
+    left: -18px;
+    display: none;
+}
+
+#form07 .select-form {
+    width: 100%;
+    position: relative;
+}
+
+#form07 .title-tea {
+    padding-left: 90px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#form07 .title-item {
+    text-align: left;
+    font-size: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+#form07 .title-item .text-note {
+    position: absolute;
+    top: 18px;
+    left: 62%;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+#form07 .box-tarea {
+    position: relative;
+    width: 100%;
+}
+
+#form07 .texa-01 {
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+    background: #E5E5E5;
+    border: 2px solid #D0D5D8;
+    padding: 20px;
+    font-size: 16px;
+}
+
+#form07 .texa-01.tea {
+    height: 150px;
+}
+
+#form07 .link {
+    display: block;
+    max-width: 250px;
+    margin: auto;
+    background: #00EADE;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 65px;
+    font-size: 24px;
+    outline: none;
+    border: none;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+#form07 .link.disabled {
+    opacity: 1;
+}
+
+#form07 .title-sub {
+    color: red;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+#form07 .item-flex {
+    width: 50%;
+}
+
+#form07 .text-red {
+    color: red;
+}
+
+
+/* slect..................................................................... */
+
+#form07 .select {
+    border: 2px solid #D0D5D8;
+    height: 60px;
+    font-family: Meiryo;
+    font-weight: 400;
+    outline: 0;
+    padding-left: 10px;
+    font-size: 16px;
+    background: #E5E5E5;
+    width: 100%;
+    appearance: none;
+    border-radius: 5px;
+}
+
+#form07 .select-form::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 87%;
+    top: 2px;
+    right: 2px;
+    pointer-events: none;
+}
+
+#form07 .select-form::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    transform: rotate(135deg);
+    top: 30%;
+    right: 12px;
+    pointer-events: none;
+}
+
+#form07 .box-select {
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+#form07 .box-select .oneday {
+    margin-right: 5px;
+}
+
+#form07 .box-select .time {
+    padding-left: 10px;
+}
+
+#form07 .title {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#form07 .title-note {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+#form07 .submit-note {
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+
+/* check.................................................................... */
+
+#form07 .checkbox_field_text {
+    font-size: 18px;
+    line-height: 30px;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+#form07 .checkbox_field_text.check-next {
+    margin-left: 0px;
+}
+
+#form07 .checkbox_field_text input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    /*
+    height: 0;
+    width: 0;
+    */
+}
+
+#form07 .checkbox_field_text .check_mark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #fff;
+    border: 2px solid #CCCCCC;
+}
+
+#form07 .checkbox_field_text input:checked~.check_mark:after {
+    display: block;
+}
+
+#form07 .checkbox_field_text .check_mark:after {
+    left: 6px;
+    top: -2px;
+    width: 5px;
+    height: 12px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    ;
+}
+
+#form07 .check_mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+#form07 .box-check {
+    padding-left: 50px;
+}
+
+#form07 .box-ratio {
+    padding-left: 100px;
+}
+
+#form07 .item-name {
+    display: flex;
+    align-items: center;
+}
+
+#form07 .item-name .ratio {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+@media (max-width: 1280px) {
+    #form07 .box-form {
+        max-width: 850px;
+    }
+    #form07 .title-item .text-note {
+        left: 26%;
+    }
+    #form07 .line-active .box-active .item-line .note-line {
+        font-size: 14px;
+        letter-spacing: -1px;
+    }
+}
+
+@media (max-width:960px) {
+    #form07 .title-item .text-note {
+        left: 30%;
+    }
+    #form07 .line-active .box-active .item-line .note-line {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    #form07 .inner {
+        max-width: 960px;
+        margin: auto
+    }
+    #form07 .destop {
+        display: block;
+    }
+    #form07 .mobi {
+        display: none;
+    }
+    #form07 .flex {
+        flex-direction: row
+    }
+}

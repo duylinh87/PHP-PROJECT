@@ -1,0 +1,324 @@
+/*css fadeIn Up*/
+
+
+/*=================================================*/
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+#form02 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#form02 a:hover {
+    opacity: 0.6;
+}
+
+#form02 .flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#form02 .animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both
+}
+
+#form02 .js-fadein {
+    opacity: 0;
+}
+
+#form02 .scroll-in {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+#head-form {
+    padding: 40px 20px 0px;
+    margin-bottom: 100px;
+}
+
+#head-form {
+    display: flex;
+    align-items: center;
+}
+
+#head-form .text-head {
+    font-size: 26px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+#form02 {
+    position: relative;
+}
+
+#form02 .destop {
+    display: none;
+}
+
+#form02 .img-width {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+#form02 .form-main .inner {
+    /* border-right: 2px solid #cccc;
+    border-left: 2px solid #cccc; */
+    padding: 50px 15px;
+    max-width: 1720px;
+    margin: auto;
+    background: white;
+    /* border-bottom: 2px solid #707070; */
+}
+
+#title-page {
+    font-size: 26px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+
+/* form..................................................................... */
+
+#form02 .box-form {
+    max-width: 980px;
+    margin: auto;
+}
+
+#form02 .title-form {
+    position: relative;
+    font-size: 32px;
+    padding-left: 20px;
+    margin-bottom: 50px;
+}
+
+#form02 .title-form::before {
+    position: absolute;
+    content: '';
+    height: 38px;
+    width: 8px;
+    background: #00EADE;
+    left: 0px;
+    top: 6px;
+}
+
+#form02 .info-item {
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #cccc;
+    padding-bottom: 30px;
+}
+
+#form02 .info-item.one {
+    border-bottom: none
+}
+
+#form02 .box-form {
+    margin-bottom: 50px;
+}
+
+#form02 .box-form .text-info {
+    width: 90px;
+    justify-content: flex-end;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    padding-top: 15px;
+}
+
+#form02 .box-form .text-info.right {
+    justify-content: flex-start
+}
+
+#form02 .box-form .box-input {
+    width: calc(100% - 250px);
+    justify-content: space-between;
+    align-items: center;
+}
+
+#form02 .box-form .info-item .item-check-box {
+    width: calc(100%/6);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#form02 .box-form .check-box {
+    opacity: 0;
+    /*width: 0px;*/
+}
+
+#form02 .box-form .check-box:active {
+    outline: none;
+}
+
+#form02 .info-personality {
+    padding-left: 100px;
+}
+
+#form02 .title-item {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-bottom: 5px solid #4BEADF;
+    padding-bottom: 5px;
+}
+
+#form02 {
+    --primary: #00EADE;
+    --other: hsl(0, 0%, 14%);
+}
+
+
+/* label */
+
+#form02 label {
+    text-align: center;
+}
+
+
+/* .design */
+
+#form02 .design {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    margin: auto;
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+#form02 .design.one {
+    width: 40px;
+    height: 40px;
+}
+
+#form02 .design.two {
+    width: 30px;
+    height: 30px;
+}
+
+#form02 .design::before,
+#form02 .design::after {
+    content: "";
+    display: block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    position: absolute;
+    transform: scale(0);
+    transform-origin: center center;
+}
+
+#form02 .design:before {
+    background: var(--other);
+    opacity: 0;
+    transition: .3s;
+    left: -2px;
+    top: -2px;
+}
+
+#form02 .design::after {
+    background: var(--primary);
+    opacity: .4;
+    transition: .6s;
+}
+
+
+/* .text */
+
+#form02 .text {
+    color: var(--other);
+    font-weight: bold;
+    display: none;
+}
+
+
+/* checked state */
+
+#form02 input:checked+.design::before {
+    opacity: 1;
+    transform: scale(1);
+    background: #A0A0A0;
+}
+
+#form02 .link {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    background: #00EADE;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+#form02 .link:hover {
+    opacity: .6;
+}
+
+@media (max-width: 1280px) {
+
+    #form02 .box-form {
+        max-width: 850px;
+    }
+
+    #form02 .line-active .box-active .item-line .note-line {
+        font-size: 14px;
+        letter-spacing: -1px;
+    }
+}
+@media (max-width:960px) {
+    #form02 .line-active .box-active .item-line .note-line {
+        font-size: 12px;
+    }
+}
+   
+
+@media (max-width: 767px) {
+    #form02 .inner {
+        max-width: 960px;
+        margin: auto
+    }
+    #form02 .destop {
+        display: block;
+    }
+    #form02 .mobi {
+        display: none;
+    }
+    #form02 .flex {
+        flex-direction: row
+    }
+}

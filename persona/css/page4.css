@@ -1,0 +1,509 @@
+/*css fadeIn Up*/
+
+
+/*=================================================*/
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+#form04 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#form04 a:hover {
+    opacity: 0.6;
+}
+
+#form04 .flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#form04 .animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both
+}
+
+#form04 .js-fadein {
+    opacity: 0;
+}
+
+#form04 .scroll-in {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+#head-form {
+    padding: 40px 20px 0px;
+    margin-bottom: 100px;
+}
+
+#head-form {
+    display: flex;
+    align-items: center;
+}
+
+#head-form .text-head {
+    font-size: 26px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+#form04 {
+    position: relative;
+}
+
+#form04 .destop {
+    display: none;
+}
+
+#form04 .img-width {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+#form04 .form-main .inner {
+    /* border-right: 2px solid #cccc;
+    border-left: 2px solid #cccc; */
+    padding: 50px 15px;
+    max-width: 1720px;
+    margin: auto;
+    background: white;
+    /* border-bottom: 2px solid #707070; */
+}
+
+#title-page {
+    font-size: 26px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+/* line..................................................................... */
+
+/* form..................................................................... */
+
+#form04 .box-form {
+    max-width: 980px;
+    margin: auto;
+}
+
+#form04 .info-social {
+    padding-left: 100px;
+}
+
+#form04 .title-form {
+    position: relative;
+    font-size: 32px;
+    padding-left: 20px;
+    margin-bottom: 50px;
+}
+
+#form04 .title-form::before {
+    position: absolute;
+    content: '';
+    height: 38px;
+    width: 8px;
+    background: #00EADE;
+    left: 0px;
+    top: 6px;
+}
+
+#form04 .info-item {
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 30px;
+}
+
+#form04 .box-form {
+    margin-bottom: 50px;
+}
+
+#form04 .box-form .text-info {
+    width: 75px;
+    justify-content: flex-end;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    padding-top: 10px;
+}
+
+#form04 .box-form .text-info.right {
+    justify-content: flex-start
+}
+
+#form04 .box-form .box-input {
+    width: 100%;
+    justify-content: center;
+}
+
+#form04 .box-form .info-item .item-check-box {
+    width: calc(100%/4);
+    align-items: center;
+    justify-content: center;
+}
+
+#form04 .box-form .info-item .check-js .item-check-box {
+    width: calc(100%/3);
+}
+
+#form04 .box-form .check-box {
+    opacity: 0;
+    width: 22px;
+}
+
+#form04 .box-form .check-box:active {
+    outline: none;
+}
+
+#form04 .box-form .label-check-box {
+    padding-left: 10px;
+    position: relative;
+    font-size: 24px;
+    outline: none;
+    cursor: pointer;
+}
+
+#form04 .box-form .check-box:checked~.label-check-box:after {
+    display: block;
+}
+
+#form04 .box-form .label-check-box:before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    top: 5.5px;
+    left: -23.7px;
+    pointer-events: none;
+}
+
+#form04 .box-form .label-check-box:after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    background-color: #434343;
+    border-radius: 50%;
+    top: 5.5px;
+    left: -23.7px;
+    display: none;
+    background: #A0A0A0
+}
+
+#form04 .select-form {
+    width: 100%;
+    max-width: 155px;
+    position: relative;
+}
+
+#form04 .info-Lifestyle {
+    padding-left: 100px;
+}
+
+#form04 .title-item {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-bottom: 5px solid #4BEADF;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+#form04 .title-item .text-note {
+    position: absolute;
+    top: 8px;
+    left: 23%;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+#form04 input {
+    border: 2px solid #D0D5D8;
+    height: 40px;
+    outline: none;
+    width: calc(100% - 35px);
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #E5E5E5;
+}
+
+#form04 input[type="submit"] {
+    border: none;
+    height: auto;
+    border-radius: 0;
+}
+
+#form04 .box-ratio input {
+    max-width: 90px;
+    height: 28px;
+}
+
+#form04 .label-input {
+    font-size: 24px;
+    width: 145px;
+    text-align: left;
+}
+
+#form04 .box-tarea {
+    width: 100%;
+}
+
+#form04 .texa-01 {
+    width: 80%;
+    height: 150px;
+    margin: auto;
+    display: block
+}
+
+#form04 .link {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    background: #00EADE;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+#form04 .link:hover {
+    opacity: .6;
+}
+
+
+/* slect..................................................................... */
+
+#form04 .select {
+    border: 2px solid #D0D5D8;
+    height: 40px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+    width: 100%;
+    border-radius: 5px;
+    background: #E5E5E5;
+    appearance: none;
+}
+
+#form04 .select-form::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    transform: rotate(135deg);
+    top: 30%;
+    right: 12px;
+    pointer-events: none;
+}
+
+#form04 .box-select {
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+#form04 .box-select .oneday {
+    margin-right: 5px;
+}
+
+#form04 .box-select .time {
+    padding-left: 10px;
+}
+
+
+/* check.................................................................... */
+
+#form04 .checkbox_field_text {
+    font-size: 24px;
+    line-height: 30px;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+#form04 .checkbox_field_text input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    /*height: 0;*/
+}
+
+#form04 .checkbox_field_text .check_mark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #fff;
+    border: 2px solid #CCCCCC;
+}
+
+#form04 .checkbox_field_text input:checked~.check_mark:after {
+    display: block;
+}
+
+#form04 .checkbox_field_text .check_mark:after {
+    left: 6px;
+    top: -2px;
+    width: 5px;
+    height: 12px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#form04 .check_mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+#form04 .box-check {
+    padding-left: 50px;
+}
+
+#form04 .box-check .check-item {
+    position: relative;
+}
+
+#form04 .box-ratio {
+    padding-left: 100px;
+}
+
+#form04 .item-name {
+    display: flex;
+    align-items: center;
+}
+
+#form04 .item-name .ratio {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+
+#form04 .checkbox_group_social {
+  display: none;  
+}
+
+
+#form04 .box-ratio {
+    display: none;  
+}
+
+#form04 .check-js {
+    margin-bottom: 30px;
+}
+
+
+
+@media (max-width: 1280px) {
+    #form04 .box-form {
+        max-width: 850px;
+    }
+    #form04 .title-item .text-note {
+        left: 26%;
+    }
+    #form04 .line-active .box-active .item-line .note-line {
+        font-size: 14px;
+        letter-spacing: -1px;
+    }
+}
+
+@media (max-width:960px) {
+    #form04 .title-item .text-note {
+        left: 30%;
+    }
+    #form04 .line-active .box-active .item-line .note-line {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    #form04 .inner {
+        max-width: 960px;
+        margin: auto
+    }
+    #form04 .destop {
+        display: block;
+    }
+    #form04 .mobi {
+        display: none;
+    }
+    #form04 .flex {
+        flex-direction: row
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

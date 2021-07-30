@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* ===================================================================
+ style info : デフォルト設定
+ author     :
+=================================================================== */
+
+body {
+  font-family: Futura,"Century Gothic",游ゴシック体,YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN",游ゴシック,"Yu Gothic",メイリオ,Meiryo,sans-serif;
+}
+input, textarea {
+  font-family: Futura,"Century Gothic",游ゴシック体,YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN",游ゴシック,"Yu Gothic",メイリオ,Meiryo,sans-serif;
+}
+a {
+  color:#0978c5;
+  text-decoration:none;
+}
+a:link {
+}
+a:visited {
+}
+a:hover {
+  cursor:pointer;
+  text-decoration:underline;
+}
+a:active {
+}
+ul,ol{
+  list-style:none;
+  list-style-type:none;
+}
+ul,li{
+  list-style: none outside none;
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}

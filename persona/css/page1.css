@@ -1,0 +1,332 @@
+/*css fadeIn Up*/
+
+
+/*=================================================*/
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+#form a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#form a:hover {
+    opacity: 0.6;
+}
+
+#form .flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#form .animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both
+}
+
+#form .js-fadein {
+    opacity: 0;
+}
+
+#form .scroll-in {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+#head-form {
+    padding: 40px 20px 0px;
+    margin-bottom: 100px;
+}
+
+#head-form {
+    display: flex;
+    align-items: center;
+}
+
+#head-form .text-head {
+    font-size: 26px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+#form {
+    position: relative;
+}
+
+#form .destop {
+    display: none;
+}
+
+#form .img-width {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+#form .form-main .inner {
+    padding: 50px 15px;
+    max-width: 1720px;
+    margin: auto;
+    background: white;
+    /* border-bottom: 2px solid #707070; */
+}
+
+#title-page {
+    font-size: 26px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+
+
+/* form..................................................................... */
+
+#form .box-form {
+    max-width: 980px;
+    margin: auto;
+}
+
+#form .info-base {
+    padding-left: 40px;
+}
+
+#form .title-form {
+    position: relative;
+    font-size: 32px;
+    padding-left: 20px;
+    margin-bottom: 50px;
+}
+
+#form .title-form::before {
+    position: absolute;
+    content: '';
+    height: 38px;
+    width: 8px;
+    background: #00EADE;
+    left: 0px;
+    top: 6px;
+}
+
+#form .info-item {
+    margin-bottom: 20px;
+    align-items: end;
+    justify-content: space-between;
+}
+
+#form .box-form {
+    margin-bottom: 50px;
+}
+
+#form .box-form .text-info {
+    width: 110px;
+    justify-content: flex-end;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#form .box-form .box-input {
+    position: relative;
+    width: calc(100% - 150px);
+}
+
+#form .box-form .label-input {
+    font-size: 24px;
+    width: 35px;
+    text-align: left;
+}
+
+#form .box-form .label-input.right {
+    text-align: right
+}
+
+#form .box-form input {
+    border: 2px solid #D0D5D8;
+    height: 40px;
+    outline: none;
+    width: calc(100% - 35px);
+    max-width: 190px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #E5E5E5;
+}
+
+#form .box-form .info-item .item-name {
+    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+#form .box-form .info-item .item-check-box {
+    width: 110px;
+    align-items: center;
+}
+
+#form .box-form .check-box {
+    opacity: 0;
+    width: 22px;
+}
+
+#form .box-form .check-box:active {
+    outline: none;
+}
+
+#form .box-form .label-check-box {
+    padding-left: 10px;
+    position: relative;
+    font-size: 24px;
+    outline: none;
+    cursor: pointer;
+}
+
+#form .box-form .check-box:checked~.label-check-box:after {
+    display: block;
+}
+
+#form .box-form .label-check-box:before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    top: 5.5px;
+    left: -23.7px;
+    pointer-events: none;
+}
+
+#form .box-form .label-check-box:after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    background-color: #434343;
+    border-radius: 50%;
+    top: 5.5px;
+    left: -23.7px;
+    display: none;
+    background: #A0A0A0
+}
+
+#form .select-form {
+    width: 100%;
+    max-width: 189px;
+    position: relative;
+}
+
+#form .select {
+    border: 2px solid #D0D5D8;
+    height: 40px;
+    color: black;
+    font-family: Meiryo;
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+    width: 100%;
+    border-radius: 5px;
+    background: #E5E5E5;
+    appearance: none;
+    padding-left: 10px;
+}
+
+#form .select-form::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    transform: rotate(135deg);
+    top: 30%;
+    right: 12px;
+    pointer-events: none;
+}
+
+#form .box-right {
+    width: calc(100% - 150px);
+}
+
+#form .box-form .box-right .item-check-box {
+    width: 220px;
+    align-items: center;
+}
+
+#form .link {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    background: #00EADE;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+#form .link:hover {
+    opacity: .6;
+}
+
+@media (max-width: 1280px) {
+
+    #form .box-form {
+        max-width: 850px;
+    }
+
+    #form .line-active .box-active .item-line .note-line {
+        font-size: 14px;
+        letter-spacing: -1px;
+    }
+}
+@media (max-width:960px) {
+
+
+    #form .line-active .box-active .item-line .note-line {
+        font-size: 12px;
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    #form .inner {
+        max-width: 960px;
+        margin: auto
+    }
+    #form .destop {
+        display: block;
+    }
+    #form .mobi {
+        display: none;
+    }
+    #form .flex {
+        flex-direction: row
+    }
+}

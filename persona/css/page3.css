@@ -1,0 +1,401 @@
+/*css fadeIn Up*/
+
+
+/*=================================================*/
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+#form03 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#form03 a:hover {
+    opacity: 0.6;
+}
+
+#form03 .flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#form03 .animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both
+}
+
+#form03 .js-fadein {
+    opacity: 0;
+}
+
+#form03 .scroll-in {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+#form03 {
+    position: relative;
+}
+
+#form03 .destop {
+    display: none;
+}
+
+#form03 .img-width {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+#head-form {
+    padding: 40px 20px 0px;
+    margin-bottom: 100px;
+}
+
+#head-form {
+    display: flex;
+    align-items: center;
+}
+
+#head-form .text-head {
+    font-size: 26px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+#form03 .form-main .inner {
+    /* border-right: 2px solid #cccc;
+    border-left: 2px solid #cccc; */
+    padding: 50px 15px;
+    max-width: 1720px;
+    margin: auto;
+    background: white;
+    /* border-bottom: 2px solid #707070; */
+}
+
+#title-page {
+    font-size: 26px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+
+/* line..................................................................... */
+
+/* form..................................................................... */
+
+#form03 .box-form {
+    max-width: 980px;
+    margin: auto;
+}
+
+#form03 .title-form {
+    position: relative;
+    font-size: 32px;
+    padding-left: 20px;
+    margin-bottom: 50px;
+}
+
+#form03 .title-form::before {
+    position: absolute;
+    content: '';
+    height: 38px;
+    width: 8px;
+    background: #00EADE;
+    left: 0px;
+    top: 6px;
+}
+
+#form03 .info-item {
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 30px;
+}
+
+#form03 .box-form {
+    margin-bottom: 50px;
+}
+
+#form03 .box-form .text-info {
+    width: 75px;
+    justify-content: flex-end;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    padding-top: 10px;
+}
+
+#form03 .box-form .text-info.right {
+    justify-content: flex-start
+}
+
+#form03 .box-form .box-input {
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+#form03 .box-form .info-item .item-name {
+    width: calc(100%/4);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#form03 .box-form .info-item .item-check-box {
+    width: calc(100%/5);
+    align-items: center;
+    justify-content: center;
+}
+
+#form03 .box-form .info-item .item-check-box.next {
+    justify-content: flex-end;
+}
+
+
+
+
+#form03 .box-form .check-box {
+    opacity: 0;
+    width: 22px;
+}
+
+#form03 .box-form .check-box:active {
+    outline: none;
+}
+
+#form03 .box-form .label-check-box {
+    padding-left: 10px;
+    position: relative;
+    font-size: 24px;
+    outline: none;
+    cursor: pointer;
+}
+#form03 .box-form .span-check-box {
+    padding-right: 10px;
+    position: relative;
+    font-size: 24px;
+    outline: none;
+    cursor: pointer; 
+}
+#form03 .box-form .label-check-box.next {
+    padding-right: 10px;
+}
+
+#form03 .box-form .check-box:checked~.label-check-box:after {
+    display: block;
+}
+
+#form03 .box-form .label-check-box:before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    top: 5.5px;
+    left: -23.7px;
+    pointer-events: none;
+}
+#form03 .box-form  .item-check-box.next::before {
+    display: none;
+}
+
+#form03 .box-form .label-check-box:after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    background-color: #434343;
+    border-radius: 50%;
+    top: 5.5px;
+    left: -23.7px;
+    display: none;
+    background: #A0A0A0
+}
+
+#form03 .select-form {
+    width: 100%;
+    max-width: 189px;
+    position: relative;
+}
+
+#form03 .select {
+    border: 2px solid #D0D5D8;
+    height: 40px;
+    color:black;
+    font-family: Meiryo;
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+    width: 100%;
+    border-radius: 5px;
+    background: #E5E5E5;
+    appearance: none;
+    padding-left: 10px;
+}
+
+#form03 .select-form::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    transform: rotate(135deg);
+    top: 30%;
+    right: 12px;
+    pointer-events: none;
+}
+
+#form03 .info-Lifestyle {
+    padding-left: 100px;
+}
+
+#form03 .title-item {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-bottom: 5px solid #4BEADF;
+    padding-bottom: 5px;
+}
+
+#form03 .info-item .item-name {
+    width: 35%;
+    display: flex;
+}
+
+#form03 input {
+    border: 2px solid #D0D5D8;
+    height: 30px;
+    outline: none;
+    width: calc(100% - 35px);
+    max-width: 190px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #E5E5E5;
+}
+
+#form03 input[type="submit"] {
+    border: none;
+    height: auto;
+    border-radius: 0;
+}
+
+#form03 .label-input {
+    font-size: 24px;
+    width: 35px;
+    text-align: right;
+}
+
+#form03 .box-tarea {
+    width: 100%;
+}
+
+#form03 .texa-01 {
+    width: 80%;
+    height: 150px;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+    background: #E5E5E5;
+    border: 2px solid #D0D5D8;
+    padding: 20px;
+    font-size: 16px;
+}
+
+#form03 .link {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    background: #00EADE;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+#form03 .link:hover {
+    opacity: .6;
+}
+
+@media (max-width: 1280px) {
+
+    #form03 .box-form {
+        max-width: 850px;
+    }
+    #form03 .title-item .text-note {
+    
+        left: 26%;
+    }
+    #form03 .line-active .box-active .item-line .note-line {
+        font-size: 14px;
+        letter-spacing: -1px;
+    }
+    #form03 .box-form .info-item .item-check-box.two {
+        width: calc(100%/3);
+    }
+}
+@media (max-width:960px) {
+
+    #form03 .title-item .text-note {
+        left: 30%;
+    }
+    #form03 .line-active .box-active .item-line .note-line {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    #form03 .inner {
+        max-width: 960px;
+        margin: auto
+    }
+    #form03 .destop {
+        display: block;
+    }
+    #form03 .mobi {
+        display: none;
+    }
+    #form03 .flex {
+        flex-direction: row
+    }
+}
+
+
+
+
+
+
+
+

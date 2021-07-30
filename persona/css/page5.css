@@ -1,0 +1,519 @@
+/*css fadeIn Up*/
+
+
+/*=================================================*/
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+#form05 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#form05 a:hover {
+    opacity: 0.6;
+}
+
+#form05 .flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#form05 .animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both
+}
+
+#form05 .js-fadein {
+    opacity: 0;
+}
+
+#form05 .scroll-in {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+#head-form {
+    padding: 40px 20px 0px;
+    margin-bottom: 100px;
+}
+
+#head-form {
+    display: flex;
+    align-items: center;
+}
+
+#head-form .text-head {
+    font-size: 26px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+#form05 {
+    position: relative;
+}
+
+#form05 .destop {
+    display: none;
+}
+
+#form05 .img-width {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+#form05 .form-main .inner {
+    /* border-right: 2px solid #cccc;
+    border-left: 2px solid #cccc; */
+    padding: 50px 15px;
+    max-width: 1720px;
+    margin: auto;
+    background: white;
+    /* border-bottom: 2px solid #707070; */
+}
+
+#title-page {
+    font-size: 26px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+
+/* line..................................................................... */
+
+
+/* form..................................................................... */
+
+#form05 .box-form {
+    max-width: 980px;
+    margin: auto;
+}
+
+#form05 .info-social {
+    padding-left: 100px;
+}
+
+#form05 .title-form {
+    position: relative;
+    font-size: 32px;
+    padding-left: 20px;
+    margin-bottom: 50px;
+}
+
+#form05 .title-form::before {
+    position: absolute;
+    content: '';
+    height: 38px;
+    width: 8px;
+    background: #00EADE;
+    left: 0px;
+    top: 6px;
+}
+
+#form05 .info-item {
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 30px;
+}
+
+#form05 .box-form {
+    margin-bottom: 50px;
+}
+
+#form05 .box-form .text-info {
+    width: 75px;
+    justify-content: flex-end;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    padding-top: 10px;
+}
+
+#form05 .box-form .text-info.right {
+    justify-content: flex-start
+}
+
+#form05 .box-form .box-input {
+    width: 100%;
+    justify-content: center;
+}
+
+#form05 .box-form .info-item .item-check-box {
+    width: calc(100%/4);
+    align-items: center;
+    justify-content: center;
+}
+
+#form05 .box-form .check-box {
+    opacity: 0;
+    width: 22px;
+}
+
+#form05 .box-form .check-box:active {
+    outline: none;
+}
+
+#form05 .box-form .label-check-box {
+    padding-left: 10px;
+    position: relative;
+    font-size: 24px;
+    outline: none;
+}
+
+#form05 .box-form .check-box:checked~.label-check-box:after {
+    display: block;
+}
+
+#form05 .box-form .label-check-box:before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    top: 5.5px;
+    left: -25px;
+    pointer-events: none;
+}
+
+#form05 .box-form .label-check-box:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #434343;
+    border-radius: 50%;
+    top: 13px;
+    left: -18px;
+    display: none;
+}
+
+#form05 .select-form {
+    width: 100%;
+    max-width: 155px;
+    position: relative;
+}
+
+#form05 .title-tea {
+    padding-left: 90px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#form05 .title-item {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-bottom: 5px solid #4BEADF;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+#form05 .title-item .text-note {
+    position: absolute;
+    top: 18px;
+    left: 62%;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+#form05 .box-tarea {
+    width: 100%;
+}
+
+#form05 .texa-01 {
+    width: 80%;
+    height: 150px;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+    background: #E5E5E5;
+    border: 2px solid #D0D5D8;
+    padding: 20px;
+    font-size: 16px;
+}
+
+#form05 .title-number {
+    text-align: center;
+    font-size: 20px;
+}
+
+#form05 #result {
+    text-align: center;
+    font-size: 24px;
+}
+
+#form05 #result2 {
+    font-size: 16px;
+    position: absolute;
+    top: 82px;
+    left: 56px;
+    font-weight: 600;
+}
+
+#form05 .check-number {
+    position: relative;
+}
+
+#form05 .box-number .item1 {
+    margin-bottom: 25px;
+}
+
+#form05 .link {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    background: #00EADE;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+#form05 .link:hover {
+    opacity: .6;
+}
+
+#form05 .title-item .text-note {
+    position: absolute;
+    top: 8px;
+    left: 10%;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+#form05 .title-item .text-note.two {
+    left: 20%;
+}
+
+
+/* slect..................................................................... */
+
+#form05 .select {
+    border: 2px solid #808080;
+    height: 40px;
+    font-family: Meiryo;
+    font-weight: 400;
+    outline: 0;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+#form05 .select-form::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 87%;
+    background-color: #737373;
+    top: 2px;
+    right: 2px;
+    pointer-events: none;
+    border: 2px solid #808080;
+}
+
+#form05 .select-form::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 13px;
+    pointer-events: none;
+}
+
+#form05 .box-select {
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+#form05 .box-select .oneday {
+    margin-right: 5px;
+}
+
+#form05 .box-select .time {
+    padding-left: 10px;
+}
+
+
+/* check.................................................................... */
+
+#form05 .note-text {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+#form05 .checkbox_field_text {
+    font-size: 20px;
+    line-height: 32px;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    display: block;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#form05 .check-item {
+    position: relative;
+    cursor: pointer;
+}
+
+#form05 .checkbox_field_text input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    /*height: 0;
+    width: 0;
+    */
+}
+
+#form05 .checkbox_field_text .check_mark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #fff;
+    border: 2px solid #CCCCCC;
+}
+
+#form05 .checkbox_field_text input:checked~.check_mark:after {
+    display: block
+}
+
+#form05 .checkbox_field_text input:checked~.check_mark.number:after {
+    display: none;
+}
+
+#form05 .checkbox_field_text input:checked~.check_mark.number::before {
+    display: block
+}
+
+#form05 .checkbox_field_text .check_mark:after {
+    left: 6px;
+    top: -2px;
+    width: 5px;
+    height: 12px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    ;
+}
+
+#form05 .checkbox_field_text .check_mark::before {
+    content: attr(data-number);
+    position: absolute;
+    top: -6px;
+    left: 5px;
+    width: 30%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-size: 15px;
+    display: none;
+}
+
+#form05 .check_mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+#form05 .box-check {
+    padding-left: 50px;
+}
+
+#form05 .box-ratio {
+    padding-left: 100px;
+}
+
+#form05 .item-name {
+    display: flex;
+    align-items: center;
+}
+
+#form05 .item-name .ratio {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+@media (max-width: 1280px) {
+    #form05 .box-form {
+        max-width: 850px;
+    }
+    #form05 .title-item .text-note {
+        left: 10%;
+    }
+    #form05 .line-active .box-active .item-line .note-line {
+        font-size: 14px;
+        letter-spacing: -1px;
+    }
+    #form05 .title-item .text-note.two {
+        left: 24%;
+    }
+}
+
+@media (max-width:960px) {
+    #form05 .title-item .text-note {
+        left: 12%;
+    }
+    #form05 .line-active .box-active .item-line .note-line {
+        font-size: 12px;
+    }
+    #form05 .title-item .text-note.two {
+        left: 28%;
+    }
+}
+
+@media (max-width: 767px) {
+    #form05 .inner {
+        max-width: 960px;
+        margin: auto
+    }
+    #form05 .destop {
+        display: block;
+    }
+    #form05 .mobi {
+        display: none;
+    }
+    #form05 .flex {
+        flex-direction: row
+    }
+}

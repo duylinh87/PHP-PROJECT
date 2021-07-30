@@ -1,0 +1,445 @@
+/*css fadeIn Up*/
+
+
+/*=================================================*/
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+#form06 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#form06 a:hover {
+    opacity: 0.6;
+}
+
+#form06 .flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#form06 .animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both
+}
+
+#form06 .js-fadein {
+    opacity: 0;
+}
+
+#form06 .scroll-in {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+#head-form {
+    padding: 40px 20px 0px;
+    margin-bottom: 100px;
+}
+
+#head-form {
+    display: flex;
+    align-items: center;
+}
+
+#head-form .text-head {
+    font-size: 26px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+#form06 {
+    position: relative;
+}
+
+#form06 .destop {
+    display: none;
+}
+
+#form06 .img-width {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+#form06 .form-main .inner {
+    /* border-right: 2px solid #cccc;
+    border-left: 2px solid #cccc; */
+    padding: 50px 15px;
+    max-width: 1720px;
+    margin: auto;
+    background: white;
+    /* border-bottom: 2px solid #707070; */
+}
+
+#title-page {
+    font-size: 26px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+
+/* line..................................................................... */
+
+
+/* form..................................................................... */
+
+#form06 .box-form {
+    max-width: 1100px;
+    margin: auto;
+}
+
+#form06 .info-social {
+    padding-left: 100px;
+}
+
+#form06 .title-form {
+    position: relative;
+    font-size: 32px;
+    padding-left: 45px;
+    margin-bottom: 50px;
+}
+
+#form06 .title-form::before {
+    position: absolute;
+    content: '';
+    height: 38px;
+    width: 8px;
+    background: #00EADE;
+    left: 30px;
+    top: 6px;
+}
+
+#form06 .info-item {
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 30px;
+}
+
+#form06 .box-form {
+    margin-bottom: 50px;
+}
+
+#form06 .box-form .text-info {
+    width: 75px;
+    justify-content: flex-end;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    padding-top: 10px;
+}
+
+#form06 .box-form .text-info.right {
+    justify-content: flex-start
+}
+
+#form06 .box-form .box-input {
+    width: 100%;
+    justify-content: center;
+}
+
+#form06 .box-form .info-item .item-check-box {
+    width: calc(100%/4);
+    align-items: center;
+    justify-content: center;
+}
+
+#form06 .box-form .check-box {
+    opacity: 0;
+    width: 22px;
+}
+
+#form06 .box-form .check-box:active {
+    outline: none;
+}
+
+#form06 .box-form .label-check-box {
+    padding-left: 10px;
+    position: relative;
+    font-size: 24px;
+    outline: none;
+}
+
+#form06 .box-form .check-box:checked~.label-check-box:after {
+    display: block;
+}
+
+#form06 .box-form .label-check-box:before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    top: 5.5px;
+    left: -25px;
+    pointer-events: none;
+}
+
+#form06 .box-form .label-check-box:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #434343;
+    border-radius: 50%;
+    top: 13px;
+    left: -18px;
+    display: none;
+}
+
+#form06 .select-form {
+    width: 100%;
+    max-width: 1050px;
+    position: relative;
+}
+
+#form06 .title-tea {
+    padding-left: 90px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#form06 .title-item {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 100%;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+#form06 .title-item .text-note {
+    position: absolute;
+    top: 18px;
+    left: 62%;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+#form06 .box-tarea {
+    width: 100%;
+}
+
+#form06 .texa-01 {
+    width: 80%;
+    height: 150px;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+    background: #E5E5E5;
+    border: 2px solid #D0D5D8;
+    padding: 20px;
+    font-size: 16px;
+}
+
+#form06 .link {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    background: #00EADE;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+#form06 .link:hover {
+    opacity: .6;
+}
+
+
+/* slect..................................................................... */
+
+#form06 .select {
+    border: 2px solid #808080;
+    height: 40px;
+    font-family: Meiryo;
+    font-weight: 400;
+    outline: 0;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+#form06 .select-form::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 87%;
+    background-color: #737373;
+    top: 2px;
+    right: 2px;
+    pointer-events: none;
+    border: 2px solid #808080;
+}
+
+#form06 .select-form::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 13px;
+    pointer-events: none;
+}
+
+#form06 .box-select {
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+#form06 .box-select .oneday {
+    margin-right: 5px;
+}
+
+#form06 .box-select .time {
+    padding-left: 10px;
+}
+
+
+/* check.................................................................... */
+
+#form06 .checkbox_field_text {
+    font-size: 24px;
+    line-height: 30px;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+#form06 .checkbox_field_text input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    /*
+    height: 0;
+    width: 0;
+    */
+}
+
+#form06 .checkbox_field_text .check_mark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #fff;
+    border: 2px solid #CCCCCC;
+}
+
+#form06 .checkbox_field_text input:checked~.check_mark:after {
+    display: block;
+}
+
+#form06 .checkbox_field_text .check_mark:after {
+    left: 6px;
+    top: -2px;
+    width: 5px;
+    height: 12px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    ;
+}
+
+#form06 .check_mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+#form06 .box-check {
+    padding-left: 50px;
+}
+
+#form06 .box-ratio {
+    padding-left: 100px;
+}
+
+#form06 .item-name {
+    display: flex;
+    align-items: center;
+}
+
+#form06 .item-name .ratio {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+@media (max-width: 1280px) {
+    #form06 .box-form {
+        max-width: 850px;
+    }
+    #form06 .title-item .text-note {
+        left: 26%;
+    }
+    #form06 .line-active .box-active .item-line .note-line {
+        font-size: 14px;
+        letter-spacing: -1px;
+    }
+}
+
+@media (max-width:960px) {
+    #form06 .title-item .text-note {
+        left: 30%;
+    }
+    #form06 .line-active .box-active .item-line .note-line {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    #form06 .inner {
+        max-width: 960px;
+        margin: auto
+    }
+    #form06 .destop {
+        display: block;
+    }
+    #form06 .mobi {
+        display: none;
+    }
+    #form06 .flex {
+        flex-direction: row
+    }
+}
