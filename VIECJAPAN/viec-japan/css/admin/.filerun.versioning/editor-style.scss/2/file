@@ -1,0 +1,3 @@
+@import "../../xeory-base/css/font-awesome.css";
+@import "../sass/foundation/variables";
+@import "../sass/object/project/editor-style";

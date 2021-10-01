@@ -1,0 +1,287 @@
+@charset "UTF-8";
+@import url(../../xeory-base/css/font-awesome.css);
+@font-face {
+  font-family: "Custom Yu Gothic";
+  src: local("Yu Gothic");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Custom Yu Gothic";
+  src: local("Yu Gothic");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Custom Yu Gothic";
+  src: local("Yu Gothic");
+  font-weight: bold;
+}
+
+.mce-content-body {
+  font-family: YuGothic, "Yu Gothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Verdana, "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+.mce-content-body a {
+  color: #004a9a;
+  text-decoration: none;
+}
+
+.mce-content-body a:hover {
+  text-decoration: underline;
+}
+
+.mce-content-body p {
+  margin-bottom: 2em;
+}
+
+.mce-content-body h2 {
+  margin: 0;
+  padding: 20px;
+  border-bottom: 0;
+  background: #004a9a;
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 32px;
+}
+
+@media screen and (max-width: 550px) {
+  .mce-content-body h2 {
+    font-size: 24px;
+  }
+}
+
+.mce-content-body h3 {
+  margin: 0 0 30px;
+  padding: 16px 0;
+  border-left: 0;
+  border-bottom: 3px solid #f3f3f3;
+  position: relative;
+}
+
+@media screen and (max-width: 550px) {
+  .mce-content-body h3 {
+    font-size: 20px;
+  }
+}
+
+.mce-content-body h3:before {
+  content: '';
+  width: 15%;
+  height: 3px;
+  background: #004a9a;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
+.mce-content-body h4 {
+  margin: 0 0 24px;
+  padding-left: 12px;
+  border-left: 3px solid #004a9a;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 550px) {
+  .mce-content-body h4 {
+    font-size: 18px;
+  }
+}
+
+.mce-content-body h5 {
+  margin: 0 0 12px;
+  padding-left: 28px;
+  font-size: 18px;
+  position: relative;
+}
+
+@media screen and (max-width: 550px) {
+  .mce-content-body h5 {
+    font-size: 16px;
+  }
+}
+
+.mce-content-body h5:before {
+  content: '';
+  background: #004a9a;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: 9px;
+  left: 6px;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #004a9a;
+}
+
+.mce-content-body h6 {
+  color: #004a9a;
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 550px) {
+  .mce-content-body h6 {
+    font-size: 14px;
+  }
+}
+
+.mce-content-body ul {
+  margin-bottom: 2em;
+}
+
+.mce-content-body ul li ul {
+  margin-bottom: 0;
+}
+
+.mce-content-body ul li ul li {
+  list-style: disc;
+}
+
+.mce-content-body ol {
+  margin-bottom: 2em;
+  padding-left: 32px;
+}
+
+.mce-content-body dl {
+  margin-bottom: 2em;
+}
+
+.mce-content-body dl dt {
+  display: inline-block;
+  margin: 0 0 1em;
+  padding: 6px 12px;
+  border: 1px solid #004a9a;
+}
+
+.mce-content-body dl dd {
+  margin: 0;
+}
+
+.mce-content-body table {
+  width: 100% !important;
+  margin-bottom: 2em;
+}
+
+.mce-content-body table th {
+  background: #004a9a;
+  color: #fff;
+}
+
+.mce-content-body table tr:nth-child(odd) td {
+  background: #f5f5f5;
+}
+
+.mce-content-body blockquote {
+  margin-bottom: 2em;
+  padding: 36px 36px 36px 90px;
+  border: 2px solid #004a9a;
+  background: #fff;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .mce-content-body blockquote {
+    padding: 60px 16px 16px;
+  }
+}
+
+.mce-content-body blockquote:before {
+  color: #004a9a;
+  top: 36px;
+  left: 36px;
+  content: '\f10d';
+  font-family: FontAwesome;
+  color: #004a9a;
+  position: absolute;
+  font-size: 32px;
+  line-height: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .mce-content-body blockquote:before {
+    top: 16px;
+    left: 16px;
+  }
+}
+
+.mce-content-body .attention {
+  padding: 32px;
+  margin-bottom: 2em;
+}
+
+@media screen and (max-width: 767px) {
+  .mce-content-body .attention {
+    padding: 16px;
+  }
+}
+
+.mce-content-body .attention p {
+  margin-bottom: 0;
+}
+
+.mce-content-body .attention ul {
+  margin-bottom: 0;
+}
+
+.mce-content-body .a-1 {
+  border: 1px solid #c5c5c5;
+}
+
+.mce-content-body .a-2 {
+  border: 2px solid #004a9a;
+}
+
+.mce-content-body .a-3 {
+  border: 1px solid #727272;
+}
+
+.mce-content-body .a-3 .attention-title {
+  font-weight: bold;
+  color: #004a9a;
+  margin-bottom: 10px;
+}
+
+.mce-content-body .attention ul, .mce-content-body blockquote ul {
+  padding-left: 20px;
+}
+
+.mce-content-body .attention ul:last-child, .mce-content-body .attention p:last-child, .mce-content-body blockquote ul:last-child, .mce-content-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.mce-content-body .link-button-green,
+.mce-content-body .link-button-orange {
+  margin-bottom: 30px !important;
+  text-align: center;
+  padding: 0;
+}
+
+.mce-content-body .link-button-green a,
+.mce-content-body .link-button-orange a {
+  display: inline-block;
+  padding: 8px 32px 9px;
+  color: #fff !important;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+@media only screen and (max-width: 767px) {
+  .mce-content-body .link-button-green a,
+  .mce-content-body .link-button-orange a {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.mce-content-body .link-button-green a i,
+.mce-content-body .link-button-orange a i {
+  margin-right: 10px;
+}
+
+.mce-content-body .link-button-green:hover a,
+.mce-content-body .link-button-orange:hover a {
+  opacity: 0.8;
+  text-decoration: none !important;
+}

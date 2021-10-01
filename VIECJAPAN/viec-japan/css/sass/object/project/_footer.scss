@@ -1,0 +1,280 @@
+#footer{	
+	word-spacing: -6px;
+	text-align: center;
+	
+	@media screen and ( max-width: 1024px ){			
+		padding-left: 24px;
+		padding-right:24px;
+	}
+
+	@media screen and ( max-width: 991px ){			
+		padding-left: 12px;
+		padding-right:12px;
+	}
+	
+	.wrap{
+		border-top: 2px solid $main-color;
+		max-width: 1200px;
+		padding-bottom: 0;
+		
+		@media screen and ( max-width: 1024px ){			
+			padding-left: 0;
+			padding-right:0;
+		}
+
+		@media screen and ( max-width: 991px ){
+			padding: 15px 0 46px;
+		}
+	}
+	.logo,
+	.menu-footer,
+	.social_very{
+		display: 	inline-block;
+		vertical-align: top;
+		word-spacing: 0;
+	}
+
+	.logo{
+		max-width: 	117px;
+		
+		@media screen and ( max-width: 991px ){
+			width: 100%;
+			max-width: none;
+			text-align: center;
+			margin-bottom: 20px;
+			
+			img{
+				max-width: 117px;
+			}
+			
+		}
+	}
+
+	.social_very{
+		max-width: 	210px;
+		text-align: right;
+		padding-left: 0;
+		padding-top: 5px;
+		
+		@media screen and ( max-width: 991px ){
+			width: 100%;
+			max-width: 100%;
+			text-align: center;
+			max-width: 380px;
+			margin: 0 auto;
+		}
+		
+		span{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		
+		img{
+			width:131px;
+			float: right;
+			
+			@media screen and ( max-width: 991px ){
+				width: 106px;
+			}
+		}
+
+		.social{
+			margin-bottom: 45px;
+			
+			@media screen and ( max-width: 991px ){
+				float: left;
+			}
+			
+			li{				
+				width: 65px;
+				display: inline-block;
+				vertical-align: top;
+				
+				@media screen and ( max-width: 991px ){
+					width: 60px;
+					line-height: 35px;
+				}
+
+				
+				a{
+					height: 38px;
+					width: 100%;
+					display: inline-block;
+					color:#fff;
+					font-size: 20px;
+					font-family: FontAwesome;
+					text-align:center;
+					line-height: 38px;
+					border-radius: 4px;
+					@media screen and ( max-width: 991px ){
+						height: 35px;
+					}
+					
+					&:hover{
+						text-decoration: none;
+					}
+				}
+			}
+
+			.facebook{
+				margin-right: 11px;
+				
+				@media screen and ( max-width: 991px ){
+					margin-right: 18px;
+				}
+				
+				a{
+					background: $facebook-color;
+				}
+			}
+			.twitter{
+				a{
+					background: $twitter-color;
+				}
+			}
+			
+		}
+
+		.social,
+		.verified{
+			@media screen and ( max-width: 991px ){
+				display: inline-block;
+				vertical-align: middle;
+				margin-bottom: 0;
+			}
+
+			@media screen and ( max-width: 320px ){
+				width: 100%;
+				float:none;
+				text-align: center;
+			}
+		}
+
+		.verified{
+			@media screen and ( max-width: 991px ){
+				padding-left: 40px;
+				font-size: 11px;
+				float: right;
+			}
+
+			@media screen and ( max-width: 320px ){
+				padding: 0;
+			}
+		}
+	}
+
+	.menu-footer{
+		width: 	calc(100% - 327px);
+		padding-left: 108px;
+		
+		@media screen and ( max-width: 991px ){
+			width: 100%;
+			padding-left: 0;
+			margin-bottom: 34px;
+		}
+
+		@media screen and ( max-width: 991px ){
+			text-align: left;
+		}
+	}
+
+	.widget_nav_menu {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		
+		@media screen and ( max-width: 550px ){
+			display:inline-block;
+			vertical-align: top;
+		}
+		
+		&:first-child{
+			margin-bottom:24px;
+			
+			@media screen and ( max-width: 550px ){
+				padding-right: 45px;
+				margin-bottom: 0;
+			}
+		}
+
+		ul {
+			text-align: center;	
+			
+
+			li {
+				margin-right:0;
+				line-height: 1.0;
+				display: inline-block;
+				border-bottom:0;
+				padding: 0;
+				text-align: left;
+				
+				@media screen and ( max-width: 550px ){
+					display: block;
+				}
+				
+				&:before {
+					content:none;
+				}
+
+				a {
+					padding-right:0;
+					color: #000;
+					font-size: 14px;
+					line-height: 20px;
+					padding: 0 10px;
+					border-left: 1px solid #000000;
+					
+					@media screen and ( max-width: 550px ){
+						font-size: 12px;
+						line-height: 40px;
+						border:0;
+						padding: 0;
+					}					
+
+					&:hover {
+						color: $main-color;
+					}
+				}
+
+				&:first-child{
+					a{
+						border-left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.site-info {
+		background: $main-color;
+		text-align: center;
+		font-size: 11px;
+		word-spacing:0;
+		padding: 2px 16px;
+		margin-left: calc(((100vw - 100%) / 2) * -1);
+		margin-right: calc(((100vw - 100%) / 2) * -1);
+		@media screen and ( max-width: 1024px ){
+			margin-left: -24px;
+			width: calc(100% + 48px);
+		}
+
+		@media screen and ( max-width: 991px ){
+			margin-left: -12px;
+			width: calc(100% + 24px);
+		}
+
+		@media screen and ( max-width: 374px ){
+			font-size: 10px;
+		}
+
+		p {
+			color: #fff;
+		}
+
+		span {
+			margin: 0 4px;
+			color: #fff;
+		}
+		
+	}
+}

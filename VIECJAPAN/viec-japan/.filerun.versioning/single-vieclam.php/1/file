@@ -1,0 +1,567 @@
+<?php get_header(); ?>
+
+
+<div id="content">
+
+	<?php do_action('xeory_prepend_content'); ?>
+
+	<div class="wrap">
+
+		<?php do_action('xeory_prepend_wrap'); ?>
+
+		<?php bzb_breadcrumb(); ?>
+
+		<div id="main" <?php bzb_layout_main(); ?> role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+
+			<?php if( have_posts() ): while( have_posts() ): the_post(); ?>
+
+				<?php 
+				//この仕事に紐づく送り出し機関を呼び出す
+				$connected = new WP_Query( array(
+
+					'connected_type' => 'vieclam_to_xkld',
+					'connected_items' => get_queried_object(),
+					'nopaging' => true,
+					'suppress_filters' => false
+				) );
+				while ( $connected->have_posts() ) : $connected->the_post();
+					$xkld_name = get_the_title();
+				endwhile;
+				wp_reset_postdata();
+				?>
+				
+				<h1>
+					<?php if( time() - get_the_time('G') < 259200 ): ?>
+					<span class="new">NEW</span>
+					<?php endif; ?>
+					<?php the_title(); ?>
+				</h1>
+				<div class="row01 clearfix">
+					<?php 
+					$date = date('d/m/Y');
+					$page_url = get_the_permalink($post->ID);
+					if(get_field('募集期限') >= $date){
+						?>
+						<p class="date01">Hạn ứng tuyển: <?php the_field('募集期限'); ?><span class="btn-fb"><a href="http://www.facebook.com/share.php?u=<?php echo $page_url; ?>" onclick="window.open(encodeURI(decodeURI(this.href)), 'FBwindow', 'width=554, height=470, menubar=no, toolbar=no, scrollbars=yes'); return false;" rel="nofollow">Chia sẻ</a></span></p>
+						<ul class="list-btn01">
+							<li class="button button-m button-blue">
+								<?php
+								if ( ! is_user_logged_in() ) {?>
+									<a href="<?php echo home_url('/login');?>"><span>Ứng tuyển</span></a>
+								<?php 
+								}else{?>
+									<a href="<?php echo home_url('/entry_form'); ?>?post_id=<?php echo $post->ID; ?>&xkld_name=<?php echo $xkld_name; ?>"><span>Ứng tuyển</span></a>
+								<?php }
+								?>
+								
+							</li>
+							<li>
+								<?php 
+								if ( ! is_user_logged_in() ) {
+									echo '<a class="login-xkld" href="'.home_url('/login').'">Đăng nhập</a>';
+									}
+								else{
+									echo do_shortcode('[favorite_button]'); 
+								}
+								?>
+							</li>
+							
+						</ul>
+					<?php }else{ ?>
+						<p>Công việc này đã hết hạn</p>
+					<?php } ?>
+
+					<?php 
+					$field = get_field_object( '月給' );
+					$value = $field['value'];
+					$label = $field['choices'][ $value ];
+					?>
+				</div>
+				<div class="row02">
+					<ul class="ul01">
+						<li>
+							Ngành nghề:
+							<?php
+							$terms = get_the_terms( $post->ID, 'recruit_cat' );
+							if ( $terms ) {
+								foreach($terms as $term){
+									echo '<span>' . $term->name . ' </span>';
+								}
+							}
+							?>
+							
+						</li>
+						<li>Địa điểm：<?php the_field('勤務地'); ?></li>
+						<li>Mức lương：<?php echo esc_html($label); ?></li>
+					</ul>
+				</div>
+				<div class="sec01 box-df01 clearfix">
+					
+					<?php 
+						//この仕事に紐づく送り出し機関を呼び出す
+					$connected = new WP_Query( array(
+
+						'connected_type' => 'vieclam_to_xkld',
+						'connected_items' => get_queried_object(),
+						'nopaging' => true,
+						'suppress_filters' => false                        
+					) );
+					while ( $connected->have_posts() ) : $connected->the_post();
+						?>
+
+						<?php 
+							$image = get_field('ロゴ画像');
+							$alt = $image['alt']; 
+						?>
+						<p class="img01"><img alt="<?php echo $alt; ?>" src="<?php echo $image['url']; ?>"></p>
+						<div class="col01">
+							<ul class="ul01">
+								<li>Đơn hàng tuyển dụng công ty phái cử</li>
+								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+							</ul>
+							<p class="link01"><a href="<?php the_field('サイトurl'); ?>" target="_blank"><?php the_field('サイトurl'); ?></a></p>
+							<?php if(get_field('ランキングを表示')): ?>
+							<div class="rate">VAMAS RANKING
+									<?php get_template_part('template-parts/parts', 'ranking'); ?>
+									<p>Bảng xếp hạng do Hiệp hội phái cử lao động Việt Nam ở nước ngoài (VAMAS) công bố</p>
+							</div>
+							<?php endif; ?>
+							<ul class="ul02">
+								<li>Địa chỉ: </li>
+								<?php
+									$terms = get_the_terms( $post->ID, 'area_tag' );
+									if($terms){
+										foreach($terms as $term){
+											echo '<li> ' . $term->name . '</li>';
+											if(next($terms)){
+												echo ' / ';
+											}
+										}
+									}
+								?>
+							</ul>
+						</div>
+					
+						<?php
+					endwhile;
+					wp_reset_postdata();
+				?>
+				</div>
+
+			<div class="sec02 box-df">
+				<div class="box-df-inner">
+					<?php if(have_rows('イメージ画像')): ?>
+					<h2 class="h2-style01">Thông tin đơn hàng</h2>
+					<ul class="ul01 clearfix">
+						<?php if( have_rows('イメージ画像') ): while( have_rows('イメージ画像') ): the_row(); ?>
+							<?php
+							$image = get_sub_field('画像');
+							$size = 'single-image';
+							$thumb = $image['sizes'][ $size ];
+							$alt = $image['alt'];
+							?>
+							<li><a class="single-xkld-slides03" rel="group03" href="<?php echo esc_url($thumb); ?>" data-fancybox="gallery03"><img alt="<?php echo $alt; ?>" src="<?php echo esc_url($thumb); ?>"></a></li>
+
+						<?php endwhile; endif; ?>
+					</ul>
+					<?php endif; ?>
+
+					<div class="list-dl01">
+						<dl class="clearfix">
+							<dt>Nội dung công việc</dt>
+							<dd><?php the_field('仕事内容'); ?></dd>
+						</dl>
+						<dl class="clearfix">
+							<dt>Yêu cầu ứng tuyển</dt>
+							<dd>
+								<dl class="clearfix">
+									<dt>Địa điểm</dt>
+									<dd><?php the_field('勤務地'); ?></dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Ngành nghề</dt>
+									<dd>
+										<?php
+										$terms = get_the_terms( $post->ID, 'recruit_cat' );
+										if ( $terms ) {
+											foreach($terms as $term){
+												echo '<span>' . $term->name . ' </span>';
+											}
+										}
+										?>
+									</dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Thời gian</dt>
+									<dd><?php 
+										if(get_field('研修期間')){
+											echo get_field('研修期間');
+											echo ' năm';
+										}; 
+									?> </dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Tuổi</dt>
+									<dd><?php 
+										if(get_field('年齢')){
+											echo get_field('年齢');
+											echo ' tuổi';
+										}; 
+									?> </dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Giới tính</dt>
+									<dd><?php the_field('性別'); ?></dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Trình độ</dt>
+									<dd><?php the_field('資格'); ?></dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Yêu cầu khác</dt>
+									<dd><?php the_field('その他の条件'); ?></dd>
+								</dl>
+							</dd>
+						</dl>
+						<dl class="clearfix">
+							<dt>Mức lương<span><br></span>Phúc lơi- Bảo hiểm</dt>
+							<dd>
+
+								<dl class="clearfix">
+									<dt>Lương cơ bản (chưa có tăng ca)</dt>
+									<dd>
+										<?php 
+										$field = get_field_object( '月給' );
+										$value = $field['value'];
+										$label = $field['choices'][ $value ];
+										?>
+										<p><?php echo esc_html($label); ?> (Đã bao gồm thuế)</p>
+									</dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Số tiền tích lũy sau 3 năm</dt>
+									<dd><?php 
+										if(get_field('3年間で貯金できる目安金額')){
+											echo get_field('3年間で貯金できる目安金額');
+											echo ' VND';
+										}; 
+									?> </dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Bảo hiểm</dt>
+									<dd><?php the_field('福利厚生'); ?></dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Thời gian làm việc</dt>
+									<dd><?php the_field('労働時間'); ?></dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Ngày nghỉ trong năm</dt>
+									<dd><?php the_field('年間休日'); ?></dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Ngoài ra</dt>
+									<dd><?php the_field('tab_salary_その他の条件'); ?></dd>
+								</dl>
+							</dd>
+						</dl>
+						<dl class="clearfix spec01">
+							<dt>Lịch trình tham gia</dt>
+							<dd>
+								<dl class="clearfix">
+									<dt>Thời hạn đăng ký</dt>
+									<dd><?php the_field('登録期限'); ?></dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Phỏng vấn</dt>
+									<dd><?php the_field('面接日程'); ?></dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Xuất cảnh dự kiến</dt>
+									<dd><?php the_field('就業開始予定日'); ?></dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Số người ứng tuyển</dt>
+									<dd><?php 
+										if(get_field('募集人数')){
+											echo get_field('募集人数');
+											echo ' người';
+										}; 
+									?> </dd>
+								</dl>
+								<dl class="clearfix">
+									<dt>Hình thức phỏng vấn</dt>
+									<dd><?php the_field('面接方法'); ?></dd>
+								</dl>
+							</dd>
+						</dl>
+						<?php 
+						$date = date('d/m/Y');
+						if(get_field('募集期限') >= $date){
+							?>
+							<ul class="list-btn01 clearfix">
+								<li class="button button-m button-blue"><a href="<?php echo home_url('/entry_form'); ?>?post_id=<?php echo $post->ID; ?>&xkld_name=<?php echo $xkld_name; ?>"><span>Ứng tuyển</span></a></li>
+								<li>
+									<?php 
+										if ( ! is_user_logged_in() ) {
+											echo '<a class="login-xkld" href="'.home_url('/login').'">Đăng nhập</a>';
+											}
+										else{
+											echo do_shortcode('[favorite_button]'); 
+										}
+									?>										
+								</li>
+							</ul>
+						<?php }else{ ?>
+							<p style="text-align: center;">Công việc này đã quá hạn</p>
+						<?php } ?>
+					</div>
+				</div>
+
+			</div>
+
+			<?php 
+				$terms = get_the_terms($post->ID, 'job_cat');
+				if($terms):
+			?>
+			<div class="sec03">
+				<h2 class="h2-style01 tag-title">Những công việc được quan tâm nhiều</h2>
+				<?php
+					//$terms = get_the_terms( $post->ID, 'job_cat' );
+					if ( $terms ) {
+						echo '<ul class="ul01">';
+						foreach($terms as $term) {
+							?>
+							<li><a href="<?php echo get_category_link( $term->term_id ); ?>"><?php echo $term->name; ?></a></li>
+							<?php
+						}
+						echo '</ul>';
+					}
+				?>
+				
+				<?php // 現在表示されている投稿と同じタームに分類された投稿を取得
+
+					$taxonomy_slug = 'recruit_cat';
+					$post_terms = wp_get_object_terms($post->ID, $taxonomy_slug); // タクソノミーの指定
+					if($post_terms){
+						echo '<h3>Những người đã xem qua công việc này thì cũng đang có quan tâm đến</h3>';
+					}
+				?>
+				
+
+				<ul class="ul02 clearfix">
+						<?php // 現在表示されている投稿と同じタームに分類された投稿を取得
+
+							$taxonomy_slug = 'recruit_cat';
+							$post_terms = wp_get_object_terms($post->ID, $taxonomy_slug); // タクソノミーの指定
+							if( $post_terms && !is_wp_error($post_terms)) { // 値があるときに作動
+								$terms_slug = array(); // 配列のセット
+								foreach( $post_terms as $value ){ // 配列の作成
+								  $terms_slug[] = $value->slug; // タームのスラッグを配列に追加
+								}
+							}
+							$args = array(
+								'post_type' => 'vieclam', // 投稿タイプを指定
+								'posts_per_page' => 4, // 表示件数を指定
+								'post__not_in' => array($post->ID), // 現在の投稿を除外
+								'tax_query' => array( // タクソノミーパラメーターを使用
+									array(
+										'taxonomy' => $taxonomy_slug, // タームを取得タクソノミーを指定
+										'field' => 'slug', // スラッグに一致するタームを返す
+										'terms' => $terms_slug // タームの配列を指定
+									) 
+								)
+							);
+							$the_query = new WP_Query($args); if($the_query->have_posts()):
+							?>
+							<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
+								<li>
+									<a href="<?php the_permalink() ?>">
+										<p class="img-df"><?php echo get_the_post_thumbnail( $post->ID, array('240' , '175'))?></p> 
+										<p class="ttl01"><?php the_title(); ?></p>
+										<p class="price"><?php echo esc_html($label); ?></p>
+										<ul class="ul03 clearfix">
+
+											<li><?php the_field('勤務地') ?></li>
+
+											<?php
+											$terms = get_the_terms( $post->ID, 'recruit_cat' );
+											if ( $terms ) {
+												echo '<li>';
+												foreach($terms as $term){
+													echo  $term->name;
+												}
+												echo '</li>';
+											}
+											?>
+										</ul>
+									</a>
+								</li>
+							<?php endwhile; ?>
+							<?php wp_reset_postdata(); ?>
+						<?php endif; ?> 
+				</ul>
+			</div>
+			
+			<?php endif; ?>
+			<div class="sec04 box-df">
+				<div class="box-df-inner">
+					<h2 class="h2-style01">Phương pháp ứng tuyển</h2>
+					<div class="list-dl01">
+						<?php 
+						$args = array(
+							'connected_type' => 'vieclam_to_entry',
+							'connected_items' => get_queried_object(),
+							'nopaging' => true,
+							'suppress_filters' => false
+						);
+						$connected_posts = get_posts( $args );
+						foreach ( $connected_posts as $post ):
+							setup_postdata( $post );
+							?>
+							<dl class="clearfix">
+								
+								<dd><?php the_field('応募方法'); ?></dd>
+							</dl>
+							<dl class="clearfix">
+								<dt>Thông tin liên lạc sau khi ứng tuyển</dt>
+								<dd><?php the_field('応募受付後の連絡'); ?></dd>
+							</dl>
+							<dl class="clearfix">
+								<dt>Quy trình tuyển dụng</dt>
+								<dd>
+									<?php if( have_rows('採用プロセス') ): while( have_rows('採用プロセス') ): $i++; the_row(); ?>
+										
+										<p class="ttl01">STEP<?php echo $i; ?></p>
+										<p class="txt01"><?php the_sub_field('ステップ'); ?></p>
+
+									<?php endwhile; endif; ?>
+								</dd>
+							</dl>
+
+							<?php
+							wp_reset_postdata();
+						endforeach;
+						?>
+
+						<?php 
+						$date = date('d/m/Y');
+						if(get_field('募集期限') >= $date){
+							?>
+							<ul class="list-btn01 clearfix">
+								<li class="button button-m button-blue"><a href="<?php echo home_url('/entry_form'); ?>?post_id=<?php echo $post->ID; ?>&xkld_name=<?php echo $xkld_name; ?>"><span>Ứng tuyển</span></a></li>
+								<li>
+									<?php 
+										if ( ! is_user_logged_in() ) {
+											echo '<a class="login-xkld" href="'.home_url('/login').'">Đăng nhập</a>';
+											}
+										else{
+											echo do_shortcode('[favorite_button]'); 
+										}
+									?>	
+								</li>
+							</ul>
+						<?php }else{ ?>
+							<p style="text-align: center;">Công việc này đã quá hạn</p>
+						<?php } ?>
+
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="sec05 box-df01 clearfix">
+				
+				<?php 
+					//この仕事に紐づく送り出し機関を呼び出す
+				$connected = new WP_Query( array(
+
+					'connected_type' => 'vieclam_to_xkld',
+					'connected_items' => get_queried_object(),
+					'nopaging' => true,
+					'suppress_filters' => false                        
+				) );
+				while ( $connected->have_posts() ) : $connected->the_post();
+					?>
+
+					<?php 
+						$image = get_field('ロゴ画像');
+						$alt = $image['alt']; 
+					?>
+					<p class="img01"><img alt="<?php echo $alt; ?>" src="<?php echo $image; ?>"></p>
+					<div class="col01">
+						<ul class="ul01">
+							<li>Đơn hàng tuyển dụng công ty phái cử</li>
+							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+						</ul>
+						<p class="link01"><a href="<?php the_field('サイトurl'); ?>" target="_blank"><?php the_field('サイトurl'); ?></a></p>
+						<?php if(get_field('ランキングを表示')): ?>
+						<div class="rate">VAMAS RANKING
+								<?php get_template_part('template-parts/parts', 'ranking'); ?>
+								<p>Bảng xếp hạng do Hiệp hội phái cử lao động Việt Nam ở nước ngoài (VAMAS) công bố</p>
+						</div>
+						<?php endif; ?>
+						<ul class="ul02">
+							<li>Địa điểm: </li>
+							<?php
+								$terms = get_the_terms( $post->ID, 'area_tag' );
+								if($terms){
+									foreach($terms as $term){
+										echo '<li> ' . $term->name . '</li>';
+									}
+								}
+							?>
+						</ul>
+					</div>
+
+				<?php
+			endwhile;
+			wp_reset_postdata();
+			?>
+		</div>
+
+	<?php endwhile; endif; ?>
+
+</div><!-- /main -->
+
+<?php do_action('xeory_append_wrap'); ?>
+
+</div><!-- /wrap -->
+
+<div class="sec06">
+	<div class="box-inner">
+		<h2>BẠn có khúc mắc trong quá trình ứng tuyển</h2>
+		<div class="box01-child">Nếu bạn có bất kỳ mối quan tâm về công việc này hoặc muốn biết thêm thông tin, xin vui lòng liên hệ với chúng tôi bằng cách sử dụng mẫu dưới đây. Nhân viên của chúng tôi sẽ trả lời.</div>
+		<?php 
+			//この仕事に紐づく送り出し機関を呼び出す
+		// $connected = new WP_Query( array(
+
+		// 	'connected_type' => 'vieclam_to_xkld',
+		// 	'connected_items' => get_queried_object(),
+		// 	'nopaging' => true,
+		// 	'suppress_filters' => false                        
+		// ) );
+		// while ( $connected->have_posts() ) : $connected->the_post();
+			?>
+			<!-- <p class="btn01"><a href="<?php echo home_url('/inquiry_xkld'); ?>?post_id=<?php echo $post->ID; ?>" >Xem chi tiết</a></p> -->
+			<?php
+		// endwhile;
+		// wp_reset_postdata();
+		?>
+		<p class="btn01"><a href="<?php echo home_url('/inquiry'); ?>">Xem chi tiết</a></p>
+	</div>
+</div>
+
+<div class="sec07">
+	<div class="box-inner">
+		<h2>Đôi nét về chế độ thực tập sinh kỹ thuật</h2>
+		<div class="box01-child">Đây là một dự án phát triển nguồn nhân lực quốc tế do chính phủ Nhật Bản thành lập. Với mục đích giúp nguồn nhân lực tiếp thu công nghệ trình độ cao và  đào tạo nhân tài mong muốn dẫn dắt sự phát triển của đất nước đó.Từ tháng 11 năm 2017 “phương pháp đào tạo kỹ năng “ được thi hành và bắt đầu triển khai với chế độ lao động người nước ngoài.</div>
+		<p class="btn01"><a href="<?php echo home_url('/about'); ?>">Xem chi tiết</a></p>
+	</div>
+</div>
+
+<?php do_action('xeory_append_content'); ?>
+
+</div><!-- /content -->
+
+<?php get_footer(); ?>

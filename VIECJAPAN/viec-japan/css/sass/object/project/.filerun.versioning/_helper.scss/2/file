@@ -1,0 +1,239 @@
+//ページネーション
+.wp-pagenavi {
+	text-align: center;
+	padding-top:62px;
+
+	a,span{
+		border:0;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 24px;
+		background: none;
+		padding: 0 24px;
+		position: relative;
+		
+		&:after{
+			content:'';
+			position: absolute;
+			width: 32px;
+			height: 3px;
+			background-color: #d92130;			
+			left:calc(50% - 16px);
+			bottom:-8px;
+			opacity: 0;
+		}
+		
+		&:hover{
+			text-decoration: none;
+			
+			&:after{
+				opacity: 1;
+			}
+		}
+	}
+
+	.current {
+		font-size: 	24px;
+		font-weight: 	bold;
+	}
+
+	a{
+		color:#111;
+	}
+
+	
+}
+
+//ページトップ
+
+.pagetop {
+	z-index: 10;
+}
+.pagetop-inner {
+	line-height: 44px;
+
+	@media screen and ( max-width: 991px ){
+		line-height: 33px;
+	}
+}
+
+
+//検索窓
+.wpcf7-submit {
+
+	width: 60%;
+	background: $main-color !important;
+
+	&:hover {
+		background: $hover-color !important;
+	}
+
+	@media screen and ( max-width: 550px ) {
+		width: 100%;
+	}
+	
+}
+
+//検索窓
+.search-form {
+	margin-bottom: 40px;
+	height: 39px;
+
+	input.search-field {
+		padding: 8px 48px 8px 8px !important;
+		font-weight: normal;
+		font-size: 14px;
+		border-radius: 0;
+	}
+
+	input[type=submit] {
+		width: 40px;
+		padding: 0;
+		background: $main-color;
+		font-family: FontAwesome;
+	}
+	input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #797979;
+    }
+    input::-moz-placeholder { /* Firefox 19+ */
+      color: #797979;
+    }
+    input:-ms-input-placeholder { /* IE 10+ */
+      color: #797979;
+    }
+    input:-moz-placeholder { /* Firefox 18- */
+      color: #797979;
+    }
+    input::-webkit-input-selection { /* Chrome/Opera/Safari */
+      color: #797979;
+    }
+    input::-moz-selection { /* Firefox 19+ */
+      color: #797979;
+    }
+    input:-ms-input-selection { /* IE 10+ */
+      color: #797979;
+    }
+    input:-moz-selection { /* Firefox 18- */
+      color: #797979;
+    }
+
+}
+
+//ソーシャルボタンのアイコン
+
+.single {
+
+	.xeory-social-btns {
+
+		ul {
+
+			li {
+
+				a {
+
+					&:before {
+						font-size: 18px;
+						margin-right: 8px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.xeory-social-btns {
+
+	> ul {
+
+		> li.item-facebook {
+
+			a:before{
+				content:"\f09a";
+			}
+		}
+	}
+}
+
+//パンくずのアイコン不要（ホーム以外）
+
+.breadcrumb{
+	
+		li{
+			font-size: 13px;
+			margin: 0;
+			padding: 0 10px;
+			
+			@media screen and ( max-width: 991px ){
+				font-size: 12px;
+				line-height: 18px;
+			}
+			
+			.fa{
+				display: none;
+			}
+			
+			&:first-child{
+				padding-left: 0;
+				
+				.fa-home{
+					font-size: 20px;
+					display: inline-block;
+					position: relative;
+					top: 3px;
+				}
+			}
+			
+			
+
+			&:last-child{
+				a:hover{
+					color:$text-color;
+				}
+			}
+
+			a{
+				color: #111111;
+			}
+		}
+	
+
+	.xeory-breadcrumbs-item-current {
+
+		&:before {
+			content: '';
+		}
+
+	}
+}
+
+
+.page-header{
+	padding: 16px;
+    font-size: 24px;
+    background: #fff;
+    margin: 0 0 30px;
+    border:1px solid $border-color;
+    font-weight: bold;
+    @media screen and ( max-width: 550px ){
+    	font-size: 20px;
+    	padding:12px;
+    }
+}
+
+.entry-header, 
+.entry-content, 
+.entry-summary, 
+.entry-footer, 
+.post-cta-header, 
+.post-cta-body-inner, 
+.post-cta-footer, 
+.post-author, 
+.underpost-widget{
+	padding-left: 40px;
+	padding-right: 40px;
+}
+.wpcf7-form{
+	textarea{
+		width: 100% !important;
+	}
+}

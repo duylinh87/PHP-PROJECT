@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P7JQH22');</script>
+<!-- End Google Tag Manager -->
+
+	<meta charset="UTF-8">
+	<title><?php bzb_title(); ?></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+<?php wp_head(); ?>
+
+<?php echo get_option('analytics_tracking_code');?>
+<?php echo get_option('webmaster_tool');?>
+
+</head>
+
+<body id="#top" <?php body_class();?> itemschope="itemscope" itemtype="http://schema.org/WebPage">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7JQH22"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --> 
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+FB.init({
+xfbml            : true,
+version          : 'v8.0'
+});
+};
+
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your Chat Plugin code -->
+<div class="fb-customerchat"
+attribution=setup_tool
+page_id="112134113945715"
+theme_color="#0084ff">
+</div>
+
+
+<?php bzb_show_facebook_block(); ?>
+
+<?php if( is_singular('lp') ) { ?>
+
+<div class="lp-wrap">
+
+<header id="lp-header">
+  <h1 class="lp-title"><?php wp_title(''); ?></h1>
+</header>
+
+<?php }else{ ?>
+
+<header id="header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+  <div class="wrap">
+    <?php echo get_custom_logo(); ?>
+
+    <!-- start global nav  -->
+      <?php if( has_nav_menu( 'global_nav' ) ){ ?>
+        <nav id="gnav" class="main-navigation" role="navigation" itemscope="itemscope" itemtype="http://scheme.org/SiteNavigationElement">
+          <div class="wrap">
+          <?php
+            wp_nav_menu(
+              array(
+                'theme_location'  => 'global_nav',
+                'menu_class'      => 'clearfix',
+                'menu_id'         => 'gnav-ul',
+                'container'       => 'div',
+                'container_id'    => 'gnav-container',
+                'container_class' => 'gnav-container'
+              )
+            );?>
+            </div>
+        </nav>
+        <?php } ?>
+
+      <?php } // if is_singular('lp') ?>
+
+    <?php 
+      do_action('xeory_append_site-branding');
+    ?>
+    <div class="hd-user"><img src="<?php echo get_stylesheet_directory_uri().'/images/iconmonstr-user-circle-thin.png'?>"></div>
+    <div class="fua-wrap">
+      <?php if( is_user_logged_in() ){ ?>
+      <p class="button-mypage"><a href="<?php echo home_url('/mypage'); ?>">Trang cá nhân</a></p>
+      <?php } ?>
+      <?php echo do_shortcode('[fua]'); ?>      
+      <?php 
+      if( !is_user_logged_in() ){
+        if(function_exists('gianism_login')){
+          gianism_login();
+        }
+      }
+      ?>
+    </div>
+  </div>
+</header>
+
+

@@ -1,0 +1,191 @@
+#side {
+	padding-top: 6px;
+	
+	h4.side-title {
+		margin-bottom: 9px;
+		padding: 0 10px;
+		line-height: 36px;
+		height: 40px;
+		font-weight: bold;
+		background: #fff;
+		font-size: 16px;
+		border-width: 1px 1px 3px;
+		border-style: solid;
+		border-color: $main-color;
+		text-align:center;		
+	}
+
+//Search 
+	.widget_search{
+		@media screen and (max-width: 991px){
+			display: none;
+		}
+	}
+
+	.side-widget{
+		padding-bottom: 0;
+		margin-bottom: 41px;
+		
+		li{
+			&:last-child{
+				border:0;
+			}
+		}
+	}
+
+//人気記事・関連記事
+	.popular-posts{
+		ul{
+			li{
+		    font-size: 16px;
+		    display: inline-block;
+		    vertical-align: top;
+		    width: 100%;
+		    overflow: hidden;
+		    line-height: 21px;
+		    margin-bottom: 0;				    
+				padding: 7px 0 12px;
+				
+		    a{
+		    	color:$text-color;
+		    	font-size: 12px;
+		    	
+		    	.wpp-thumbnail{
+		    		padding-top: 5px;
+		    		margin-right: 16px;
+		    		max-width: 96px;
+		    	}
+		    	&:hover{
+		    		color: $main-color;
+		    	}
+		    }
+
+		    .post-stats{
+		    	font-size: 0;
+		    	text-align: right;
+		    	color: #888888;
+		    	padding-top: 6px;
+		    	
+		    	.wpp-date{
+		    		font-size: 12px;
+		    	}		    	
+		    }
+
+		   	.wpp-category{
+		   		font-size: 0;
+		   		float: left;
+		   		a{
+		   			color: #888888;
+		   		}
+		   	}
+			}
+		}
+	}
+	.widget_xeory_postviews,  .widget_xeory_recentviews {
+		margin-bottom: 40px;
+
+		.widget-content {
+
+			ul {
+
+				li {
+					margin-bottom: 0;
+					padding: 0;
+					overflow: hidden;
+					padding: 7px 0 12px;
+					border-bottom: 1px solid #a3a3a3;
+					line-height: 21px;
+
+					.xeory-subloop-image {
+						img{
+							padding-top:5px;
+							max-width: 96px;
+							float: left;
+							margin-right: 16px;
+						}
+						
+					}
+
+					.xeory-subloop-content {
+
+						h4 {
+							line-height: 21px;
+
+							a {
+								color:  $text-color;
+								font-size: 12px;
+								font-weight: normal;
+
+								&:hover {
+									color: $main-color
+								}
+							}
+						}
+
+						.xeory-subloop-meta {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.widget_xeory_recentviews {
+
+		h3 {
+
+			&:before {
+				content:"\f11d";
+				padding: 6px;
+			}
+		}
+	}
+
+	.widget_social_widget {
+
+		h3 {
+
+			&:before {
+				content:"\f087";
+				padding: 6px 8px;
+			}
+		}
+
+		.xeory-social-btns {
+			padding: 0;
+			text-align: center;
+
+			ul {
+				margin: 0;
+
+				li {
+					width: auto !important;
+					padding: 0 10px !important;
+					margin: 0;
+
+					a {
+						width: 52px;
+						height: 52px;
+						padding: 0;
+						margin: 0;
+						display: inline-block;
+						line-height: 52px;
+						border-radius: 5px;
+
+						&:before {
+							width: 52px;
+							height: 52px;
+							font-size: 22px;
+							margin: 0;
+						}
+
+						.xeory-social-name {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}

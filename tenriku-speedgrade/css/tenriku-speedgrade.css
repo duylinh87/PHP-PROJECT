@@ -1,0 +1,1081 @@
+/*css fadeIn Up*/
+
+
+/*=================================================*/
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 150px, 0);
+        -webkit-transform: translate3d(0, 150px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 150px, 0);
+        -webkit-transform: translate3d(0, 150px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+#tenriku-speedgrade img {
+    max-width: 100%;
+}
+
+#tenriku-speedgrade .animated {
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both
+}
+
+#tenriku-speedgrade .animatedFadeInUp {
+    opacity: 0;
+}
+
+#tenriku-speedgrade .fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+#tenriku-speedgrade {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+}
+
+#tenriku-speedgrade .pc_br {
+    display: none;
+}
+
+#tenriku-speedgrade .inner{
+    padding: 0px 20px;
+    max-width: 1150px;
+    margin: auto;
+}
+
+#tenriku-speedgrade img {
+    max-width: 100%;
+}
+
+
+#tenriku-speedgrade.confirm .header-main{
+    background: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,.30);
+}
+#tenriku-speedgrade.confirm .header-main .scroll-header{
+    display: block;
+}
+#tenriku-speedgrade.confirm .header-main .top-header{
+    display: none;
+}
+#tenriku-speedgrade.confirm .header-main .menu-item a{
+    color: #333333;
+}
+#tenriku-speedgrade .header-main{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 99;
+    transform: translateY(0);
+    transition: .6s;
+}
+#tenriku-speedgrade .header-main.scroll-top{
+    background: #fff;
+    box-shadow: 0 0 16px rgba(0,0,0,.40);
+}
+#tenriku-speedgrade .header-main.is-active{
+    transform: translateY(-110px);
+}
+#tenriku-speedgrade .header-main .list-menu-item{
+    display: flex;
+    flex-wrap: wrap;
+}
+#tenriku-speedgrade .header-main .menu-item a{
+    font-size: 16px;
+    line-height: 26px;
+    color: #fff;
+    font-weight: 700;
+    display: block;
+    text-decoration: none;
+    padding: 25px 19px;
+    letter-spacing: 0.55px;
+    transition: .4s;
+}
+#tenriku-speedgrade .header-main.scroll-top .menu-item a{
+    color: #333333;
+}
+#tenriku-speedgrade .header-main .logo .scroll-header{
+    display: none;
+}
+#tenriku-speedgrade .header-main.scroll-top .scroll-header{
+    display: block;
+}
+#tenriku-speedgrade .header-main .logo svg{
+    width: 150px;
+    display: block;
+}
+#tenriku-speedgrade .header-main .logo svg g *{
+    transition:.4s;
+}
+#tenriku-speedgrade .header-main.scroll-top .logo svg g *{
+    fill: #2680C8;
+}
+#tenriku-speedgrade .header-main .logo a{
+    display: block;
+}
+#tenriku-speedgrade .header-main .container-header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 90px;
+}
+#tenriku-speedgrade .header-main .logo{
+    width: 180px;
+    padding-left: 13px;
+}
+#tenriku-speedgrade .header-main .application-item{
+    width: 180px;
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+}
+#tenriku-speedgrade .header-main .application-item a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 26px;
+    color: #fff;
+    background: #2680C8;
+    font-weight: 700;
+    padding: 14px 0px;
+    width: 100%;
+    text-decoration: none;
+}
+#tenriku-speedgrade .header-main .application-item a:hover{
+    opacity: .7;
+}
+#tenriku-speedgrade .header-main .nav-menu{
+    width: calc(100% - 360px);
+    padding-left: 20px;
+}
+
+#tenriku-speedgrade .blue{
+    position: relative;
+    background: #023174;
+}
+#tenriku-speedgrade .yellow{
+    position: relative;
+    background: #FFF9D6;
+}
+
+#tenriku-speedgrade .yellow:after{
+    content: '';
+    position: absolute;
+    width:0px;
+    height:0px;
+    border-left:100px solid transparent;
+    border-right:100px solid transparent;
+    border-top:42px solid #FFF9D6;
+    bottom: -41px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+}
+#tenriku-speedgrade .blue:after{
+    content: '';
+    position: absolute;
+    width:0px;
+    height:0px;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-top:45px solid #0C3174;
+    bottom: -44px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/*main-banner*/
+#tenriku-speedgrade .main-banner{
+    background-image: url("../images/tenriku-speedgrade/tenriku_speedgrade_mainimg_pc.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 95px;
+    padding-bottom: 26px;
+    position: relative;
+}
+#tenriku-speedgrade .main-banner:after{
+    content: '';
+    position: absolute;
+    background-image: url("../images/tenriku-speedgrade/tenriku_speedgrade_icon06_pc.png");
+    width: 206px;
+    height: 42px;
+    bottom: -41px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+#tenriku-speedgrade .main-banner .banner-inner{
+    max-width: 1150px;
+    margin: auto;
+    padding: 0px 20px;
+}
+#tenriku-speedgrade .main-banner .heading .t1{
+    font-size: 30px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    display: block;
+    letter-spacing: 2.3px;
+    margin-top: 6px;
+    margin-bottom: 9px;
+}
+#tenriku-speedgrade .main-banner .img-main{
+    position: relative;
+    margin-left: -26px;
+}
+
+
+/*contact-box*/
+/*==============================*/
+#tenriku-speedgrade .contact-box{
+    padding-top: 73px;
+    padding-bottom: 50px;
+}
+#tenriku-speedgrade .contact-box .content{
+    position: relative;
+}
+#tenriku-speedgrade .contact-box .title .ttl img{
+    max-width: 635px;
+}
+#tenriku-speedgrade .contact-box .title{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 33px;
+}
+#tenriku-speedgrade .contact-box .title .ttl{
+    width: 60%;
+    padding-right: 20px;
+    margin-top: 10px;
+}
+#tenriku-speedgrade .contact-box .title .link-page{
+    width: 40%;
+    padding-left: 5px;
+}
+#tenriku-speedgrade .contact-box .title .link-page .img-ttl img{
+    width: 90%;
+    max-width: 210px;
+    margin: auto;
+    display: block;
+}
+#tenriku-speedgrade .contact-box .title .link-page .img-ttl{
+    margin-bottom: 10px;
+}
+#tenriku-speedgrade .contact-box .title .link-page a{
+    display: block;
+    font-size: 22px;
+    line-height: 36px;
+    color: #fff;
+    font-weight: 700;
+    background: #2680C8;
+    border: 2px solid #2680C8;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    padding: 18px 0px;
+    box-shadow: 0 8px 0 #244C83;
+    border-radius: 60px;
+    letter-spacing: 1.25px;
+    transition: .4s;
+    opacity: 1;
+}
+#tenriku-speedgrade .contact-box .title .link-page a:hover{
+    background: #fff;
+    border: 2px solid #244C83;
+    color: #2680C8;
+}
+#tenriku-speedgrade svg path{
+    transition: .4s;
+}
+#tenriku-speedgrade .contact-box .title .link-page a:hover svg path{
+    fill: #2680C8;
+}
+#tenriku-speedgrade .link-page a img,
+#tenriku-speedgrade .link-page a svg{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+#tenriku-speedgrade .contact-box .content .tel-img img{
+    display: block;
+}
+#tenriku-speedgrade .contact-box .content .tel-img{
+    position: absolute;
+    top: 58.5%;
+    left: 207px;
+    transform: translateY(-50%);
+    width: 40%;
+    max-width: 400px;
+}
+#tenriku-speedgrade .contact-box .content .link-page a{
+    display: block;
+    font-size: 19px;
+    line-height: 29px;
+    color: #fff;
+    font-weight: 700;
+    background: #023174;
+    border: 2px solid #023174;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    padding: 16px 0px;
+    box-shadow: 0 6px 0 #030A10;
+    border-radius: 60px;
+    letter-spacing: -1px;
+    transition: .4s;
+    opacity: 1;
+}
+#tenriku-speedgrade .contact-box .content .link-page a:hover{
+    color: #023174;
+    border: 2px solid #030A10;
+    background: #fff;
+}
+#tenriku-speedgrade .contact-box .content .link-page a:hover svg path{
+    fill: #023174;
+}
+#tenriku-speedgrade .contact-box .content .link-page {
+    position: absolute;
+    width: 32%;
+    max-width: 345px;
+    top: 57%;
+    right: 48px;
+    transform: translateY(-50%);
+}
+
+
+#tenriku-speedgrade .ask-answer .ask {
+    padding-top: 50px;
+    padding-bottom: 73px;
+}
+#tenriku-speedgrade .ask-answer .ask .title{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 22px;
+}
+#tenriku-speedgrade .ask-answer .ask .title span{
+    font-size: 36px;
+    line-height: 58px;
+    color: #023174;
+    font-weight: 700;
+    display: inline-block;
+    width: calc(100% - 80px);
+    padding-left: 16px;
+    letter-spacing: 2.7px;
+}
+#tenriku-speedgrade .ask-answer .ask .list-ask{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+#tenriku-speedgrade .ask-answer .ask .list-ask:after{
+    content: "";
+    position: absolute;
+    width:0px;
+    height:0px;
+    border-left:45px solid transparent;
+    border-right:45px solid transparent;
+    border-top:35px solid #67a4cb;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+}
+#tenriku-speedgrade .ask-answer .ask .list-ask .ask-item{
+    width: calc(25% - 22px);
+}
+
+#tenriku-speedgrade .ask-answer .answer{
+    padding-top: 52px;
+    padding-bottom: 67px;
+}
+#tenriku-speedgrade .ask-answer .answer .title{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 22px;
+}
+#tenriku-speedgrade .ask-answer .answer .title span{
+    font-size: 36px;
+    line-height: 58px;
+    color: #fff;
+    font-weight: 700;
+    display: inline-block;
+    width: calc(100% - 80px);
+    padding-left: 29px;
+}
+#tenriku-speedgrade .ask-answer .answer .img-answer{
+    margin-bottom: 37px;
+}
+#tenriku-speedgrade .ask-answer .answer .text{
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 700;
+    color: #fff;
+}
+
+#tenriku-speedgrade .recruitment-homepage{
+    padding-top: 80px;
+    padding-bottom: 75px;
+}
+#tenriku-speedgrade .recruitment-homepage .title{
+    font-size: 32px;
+    line-height: 50px;
+    text-align: center;
+    color: #023174;
+    margin-bottom: 16px;
+}
+
+
+#tenriku-speedgrade .heading-block{
+    font-size: 36px;
+    line-height: 58px;
+    color: #023174;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 31px;
+}
+#tenriku-speedgrade .blue .heading-block{
+    color: #fff;
+}
+#tenriku-speedgrade .heading-block span{
+    display: block;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    margin-top: 12px;
+}
+#tenriku-speedgrade .sub-ttl{
+    font-size: 20px;
+    line-height: 40px;
+    color: #333333;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 37px;
+}
+
+#tenriku-speedgrade .strengths{
+    padding-top: 75px;
+    padding-bottom: 30px;
+}
+#tenriku-speedgrade .strengths .list-strengths{
+    display: flex;
+    flex-wrap: wrap;
+}
+#tenriku-speedgrade .strengths .list-strengths .strengths-item{
+    width: 31.55%;
+    margin-right: 2.675%;
+    margin-bottom: 38px;
+}
+#tenriku-speedgrade .strengths .list-strengths .strengths-item:nth-child(3n){
+    margin-right: 0px;
+}
+#tenriku-speedgrade .strengths .strengths-item .ttl{
+    font-size: 24px;
+    line-height: 36px;
+    color: #333333;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    margin-bottom: 25px;
+}
+#tenriku-speedgrade .strengths .strengths-item .ttl:after{
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: #EEC76A;
+    bottom: -12px;
+    left: calc(50% - 40px);
+}
+#tenriku-speedgrade .strengths .strengths-item .image img{
+    display: block;
+}
+#tenriku-speedgrade .strengths .strengths-item .image{
+    margin-bottom: 14px;
+}
+#tenriku-speedgrade .strengths .strengths-item .text{
+    font-size: 18px;
+    line-height: 36px;
+    color: #333333;
+    font-weight: 400;
+}
+
+
+#tenriku-speedgrade .options {
+    padding-top: 68px;
+    padding-bottom: 71px;
+}
+
+#tenriku-speedgrade .movie {
+    padding-top: 69px;
+    padding-bottom: 81px;
+}
+#tenriku-speedgrade .movie .heading-block{
+    margin-bottom: 45px;
+}
+#tenriku-speedgrade .movie .text-content{
+    background: #fff;
+    width: 66%;
+    position: relative;
+    margin-right: -6%;
+    margin-top: 49px;
+    padding: 53px 95px 45px 39px;
+}
+#tenriku-speedgrade .movie .movie-content{
+    width: 40%;
+    position: relative;
+    z-index: 1;
+}
+#tenriku-speedgrade .movie .content{
+    display: flex;
+    flex-wrap: wrap;
+}
+#tenriku-speedgrade .movie .text-content .ttl{
+    font-size: 18px;
+    line-height: 36px;
+    color: #333333;
+    font-weight: 700;
+    margin-bottom: 21px;
+}
+#tenriku-speedgrade .movie .text-content .text{
+    font-size: 16px;
+    line-height: 36px;
+    color: #333333;
+    font-weight: 400;
+}
+#tenriku-speedgrade .movie .movie-content .note{
+    font-size: 13px;
+    line-height: 29px;
+    color: #fff;
+    text-align: right;
+    margin-top: 7px;
+}
+
+
+#tenriku-speedgrade .support{
+    padding-top: 81px;
+    padding-bottom: 85px;
+    position: relative;
+}
+#tenriku-speedgrade .support:after {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 42px solid #fff;
+    bottom: -41px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+}
+#tenriku-speedgrade .support .heading-block{
+    color: #333333;
+    margin-bottom: 27px;
+}
+#tenriku-speedgrade .support .heading-block span{
+    color: #2680C8;
+}
+#tenriku-speedgrade .support .sub-ttl{
+    text-align: left;
+    padding-left: 7px;
+}
+#tenriku-speedgrade .support .list-support{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+}
+#tenriku-speedgrade .support .support-item{
+    width: 31.55%;
+    margin-right: 2.675%;
+    margin-bottom: 22px;
+}
+#tenriku-speedgrade .support .support-item:nth-child(3n){
+    margin-right: 0px;
+}
+#tenriku-speedgrade .support .link-page .link-txt{
+    display: inline-block;
+    border: 2px solid #023174;
+    border-radius: 50px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #023174;
+    text-decoration: none;
+    width: 100%;
+    max-width: 345px;
+    padding: 16px 0px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    transition: .4s;
+    opacity: 1;
+}
+#tenriku-speedgrade .support .link-page .link-txt:hover{
+    color: #fff;
+    background: #023174;
+}
+#tenriku-speedgrade .support .link-page .link-txt svg path{
+    transition: .4s;
+}
+#tenriku-speedgrade .support .link-page .link-txt:hover svg path{
+    fill: #fff;
+}
+#tenriku-speedgrade .support .link-page{
+    text-align: center;
+}
+
+
+#tenriku-speedgrade .method {
+    padding-top: 70px;
+    padding-bottom: 75px;
+}
+
+#tenriku-speedgrade .faq{
+    padding-top: 75px;
+    padding-bottom: 36px;
+}
+#tenriku-speedgrade .faq .heading-block{
+    margin-bottom: 45px;
+}
+#tenriku-speedgrade .faq .faq-item{
+    margin-bottom: 42px;
+}
+#tenriku-speedgrade .faq .faq-item .ask{
+    font-size: 16px;
+    line-height: 28px;
+    color: #023174;
+    font-weight: 700;
+    position: relative;
+    background: #fff;
+    padding: 18px 20px 12px 95px;
+}
+#tenriku-speedgrade .faq .faq-item .ask:before{
+    content: "";
+    position: absolute;
+    background-image: url("../images/tenriku-speedgrade/tenriku_speedgrade_icon04_pc.png");
+    width: 20px;
+    height: 32px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    top: 12px;
+    left: 24px;
+}
+#tenriku-speedgrade .faq .faq-item .answer{
+    font-size: 16px;
+    line-height: 28px;
+    color: #333333;
+    font-weight: 700;
+    position: relative;
+    background: #F2F9FD;
+    border-top: 1px solid rgba(61,127,216,.70);
+    padding: 18px 20px 12px 95px;
+}
+#tenriku-speedgrade .faq .faq-item .answer:before{
+    content: "";
+    position: absolute;
+    background-image: url("../images/tenriku-speedgrade/tenriku_speedgrade_icon05_pc.png");
+    width: 16px;
+    height: 32px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    top: 12px;
+    left: 26px;
+}
+
+
+#tenriku-speedgrade .contact{
+    background: #F5F5F5;
+    padding-top: 74px;
+    padding-bottom: 80px;
+}
+#tenriku-speedgrade .contact .ttl-img img{
+    max-width: 598px;
+}
+#tenriku-speedgrade .contact .ttl-img{
+    text-align: center;
+    margin-bottom: 9px;
+}
+#tenriku-speedgrade .contact .heading-block{
+    margin-bottom: 23px;
+}
+#tenriku-speedgrade .contact .sub-ttl{
+    font-size: 18px;
+    line-height: 32px;
+    margin-bottom: 40px;
+}
+#tenriku-speedgrade .contact #form-contact{
+    background: #fff;
+    padding: 20px 93px 50px;
+}
+#tenriku-speedgrade .contact .image-contact{
+    margin-bottom: 35px;
+}
+#tenriku-speedgrade .contact .field .field_label{
+    font-size: 18px;
+    line-height: 24px;
+    color: #333333;
+    font-weight: 700;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 288px;
+    justify-content: space-between;
+    padding-right: 26px;
+    position: relative;
+    padding-top: 4px;
+}
+#tenriku-speedgrade .contact .field .field_label .required-txt{
+    font-size: 14px;
+    line-height: 24px;
+    background: #E38A30;
+    color: #fff;
+    padding: 2px 18px;
+}
+#tenriku-speedgrade .contact .field{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px dashed #CCCCCC;
+    padding: 25px 0px;
+    align-items: flex-start;
+
+}
+#tenriku-speedgrade .contact .field .input_container{
+    width: calc(100% - 288px);
+    position: relative;
+}
+#tenriku-speedgrade .contact .field .input_container input,
+#tenriku-speedgrade .contact .field .input_container select{
+    border: 1px solid #CCCCCC;
+    background: #F5F5F5;
+    height: 38px;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    width: 100%;
+    max-width: 320px;
+    padding: 0px 10px;
+}
+#tenriku-speedgrade .contact .field .input_container.input-large input{
+    max-width: 540px;
+}
+#tenriku-speedgrade .contact .field .input_container textarea{
+    border: 1px solid #CCCCCC;
+    background: #F5F5F5;
+    height: 92px;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    width: 100%;
+    max-width: 540px;
+    padding: 8px;
+}
+#tenriku-speedgrade .contact .field .input_container input::placeholder{
+    color: #868D96;
+}
+#tenriku-speedgrade .contact .field .sub_field_label input{
+    width: 16px;
+    height: 16px;
+}
+#tenriku-speedgrade .contact .field .inner-radio{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 38px;
+    align-items: center;
+}
+#tenriku-speedgrade .contact .field .sub_field{
+    width: 50%;
+}
+#tenriku-speedgrade .contact .field .sub_field .sub_txtLabel{
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    padding-left: 10px;
+}
+#tenriku-speedgrade .contact .field .sub_field .sub_field_label{
+    display: flex;
+    align-items: center;
+}
+#tenriku-speedgrade .contact .checkBox-content .text{
+    font-size: 16px;
+    line-height: 32px;
+    color: #333333;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 12px;
+}
+#tenriku-speedgrade .contact .checkBox-content .text a{
+    color: #023174;
+    font-weight: 700;
+    text-decoration: underline;
+}
+#tenriku-speedgrade .contact .list-field{
+    margin-bottom: 23px;
+}
+/*#tenriku-speedgrade .contact .mwform-checkbox-field-text:before {*/
+/*content: "";*/
+/*position: absolute;*/
+/*width: 23px;*/
+/*height: 23px;*/
+/*border: 1px solid #192740;*/
+/*left: 0px;*/
+/*top: 0px;*/
+/*transition: .3s;*/
+/*}*/
+#tenriku-speedgrade .contact .check-privacy{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+#tenriku-speedgrade .contact .check-privacy input{
+    width: 14px;
+    height: 14px;
+}
+#tenriku-speedgrade .contact .checkBox-content .mwform-checkbox-field-text{
+    font-size: 16px;
+    line-height: 32px;
+    color: #333333;
+    font-weight: 500;
+    text-align: center;
+    padding-left: 10px;
+}
+#tenriku-speedgrade .contact .btn-submit input{
+    font-size: 18px;
+    line-height: 30px;
+    color: #fff;
+    font-weight: 700;
+    background: #023174;
+    border-radius: 50px;
+    padding: 11px 0px;
+    width: 100%;
+    max-width: 345px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #023174;
+    transition: .3s;
+    box-shadow: 0 0 20px rgba(11,135,206,.40);
+}
+#tenriku-speedgrade .contact .btn-submit input:hover{
+    background: #fff;
+    color: #023174;
+}
+#tenriku-speedgrade .btn-complete{
+    padding-top: 40px;
+}
+#tenriku-speedgrade .btn-complete .close{
+    font-size: 18px;
+    line-height: 30px;
+    color: #fff;
+    font-weight: 700;
+    background: #023174;
+    border-radius: 50px;
+    padding: 11px 0px;
+    width: 100%;
+    max-width: 345px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #023174;
+    transition: .3s;
+    box-shadow: 0 0 20px rgba(11,135,206,.40);
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+#tenriku-speedgrade .contact .btn-submit{
+    text-align: center;
+}
+#tenriku-speedgrade .error{
+    color: red;
+    position: absolute;
+    font-size: 12px;
+    left: 0px;
+    bottom: -20px;
+}
+#tenriku-speedgrade .contact .field .input_container input:focus-visible,
+#tenriku-speedgrade .contact .field .input_container select:focus-visible,
+#tenriku-speedgrade .contact .field .input_container textarea:focus-visible{
+    outline: 0px;
+}
+
+#tenriku-speedgrade .contact .submit-form-content.submit{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 40px;
+}
+#tenriku-speedgrade .contact .submit-form-content.submit .btn-submit{
+    width: 50%;
+}
+#tenriku-speedgrade .contact .field .txt-confirm{
+    width: calc(100% - 288px);
+    font-size: 16px;
+    line-height: 28px;
+    color: #333;
+    font-weight: 400;
+}
+
+
+
+#tenriku-speedgrade .complete .title{
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+    color: #000;
+    margin-bottom: 60px;
+}
+#tenriku-speedgrade .complete .text{
+    text-align: center;
+    font-size: 24px;
+    line-height: 42px;
+    font-weight: 700;
+    color: #000;
+}
+#tenriku-speedgrade .complete .content{
+    padding: 80px 0px;
+}
+#tenriku-speedgrade .complete{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+}
+#tenriku-speedgrade .complete .inner{
+    background: #fff;
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 0 0 20px rgba(0,0,0,.20);
+    position: relative;
+    z-index: 99;
+}
+#tenriku-speedgrade .complete .mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background: rgba(0,0,0,.70);
+}
+body.complete-isActive{
+    overflow: hidden;
+}
+#tenriku-speedgrade .back-top{
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #2680C8;
+    text-decoration: none;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    display: none;
+}
+#tenriku-speedgrade .back-top.is-active{
+    display: flex;
+}
+#tenriku-speedgrade .back-top:hover{
+    opacity: .7;
+}
+#tenriku-speedgrade .contact .title-confirm{
+    display: none;
+}
+#tenriku-speedgrade.confirm .contact{
+    padding-top: 200px;
+}
+#tenriku-speedgrade.confirm .contact .field .field_label:after{
+    content: ":";
+    position: absolute;
+    font-size: 18px;
+    color: #333333;
+    top: 1px;
+    right: 30px;
+}
+
+#tenriku-speedgrade a:hover{
+    opacity: .7;
+}
+#tenriku-speedgrade a{
+    transition: .4s;
+}
+
+
+
+
+#tenriku-speedgrade .footer-main{
+    background: #EBEDED;
+    padding: 29px 0px;
+}
+#tenriku-speedgrade .footer-main .inner{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+#tenriku-speedgrade .footer-main .ttl-logo{
+    display: inline-block;
+    font-size: 16px;
+    line-height: 29px;
+    color: #333333;
+    font-weight: 400;
+    margin-right: 20px;
+}
+#tenriku-speedgrade .footer-main .logo-footer{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+#tenriku-speedgrade .footer-main .logo-footer a img{
+    max-width: 252px;
+}
+#tenriku-speedgrade .footer-main .copyright{
+    width: 50%;
+    font-size: 16px;
+    line-height: 28px;
+    color: #333;
+    text-align: right;
+    font-weight: 500;
+}

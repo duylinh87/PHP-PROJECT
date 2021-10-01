@@ -1,0 +1,514 @@
+<?php
+/*
+ * サムネイル
+*/
+add_theme_support('post-thumbnails');
+
+/*
+ * css,jsの読み込み
+*/
+if (!is_admin())
+{
+    function add_scripts()
+    {
+        wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+        wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/css/style.css', array(
+            'parent-style'
+        ));
+        wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+        wp_enqueue_style('slick', get_stylesheet_directory_uri() . '/slick/slick.css'); //cssファイルの場合
+        wp_enqueue_style('slick-theme', get_stylesheet_directory_uri() . '/slick/slick-theme.css'); //cssファイルの場合
+        wp_enqueue_script('slick.min', get_stylesheet_directory_uri() . '/slick/slick.min.js');
+        wp_enqueue_script('sp-nav', get_stylesheet_directory_uri() . '/js/sp-nav.js');
+        wp_enqueue_script('add', get_stylesheet_directory_uri() . '/js/app.js');
+        wp_enqueue_script('fontawesome', 'https://kit.fontawesome.com/f98042b3a8.js');
+    }
+
+    add_action('wp_enqueue_scripts', 'add_scripts');
+}
+
+/**
+ * ファビコン設定
+ */
+function xbc_favicon()
+{
+    $fav = '<link rel="shortcut icon" href="' . get_template_directory_uri() . '/assets/images/favicon.ico" />';
+    echo $fav;
+}
+add_action('wp_head', 'xbc_favicon');
+
+/**
+ * サイトオプション
+ */
+if (function_exists('acf_add_options_page'))
+{
+    acf_add_options_page(array(
+        'page_title' => 'Site Option',
+        'menu_title' => 'Site Option',
+        'menu_slug' => 'acf-settings',
+        'capability' => 'manage_options',
+    ));
+
+    // acf_add_options_page(array(
+    //     'page_title' => 'サイトオプション2',
+    //     'menu_title' => 'サイトオプション2',
+    //     'menu_slug'  => 'acf-settings2',
+    //     'capability' => 'manage_options',
+    // ));
+    
+}
+
+/**
+ * 投稿の紐付け
+ * xkldが送り出し機関
+ */
+
+function vieclam_to_xkld_period_types()
+{
+    // Posts 2 Posts プラグインが有効化されてるかチェック
+    if (!function_exists('p2p_register_connection_type')) return;
+
+    // 求人案件に送り出し機関を表示
+    p2p_register_connection_type(array(
+        'name' => 'vieclam_to_xkld',
+        'from' => 'xkld',
+        'to' => 'vieclam'
+    ));
+
+    // 求人案件と応募方法
+    p2p_register_connection_type(array(
+        'name' => 'vieclam_to_entry',
+        'from' => 'entry',
+        'to' => 'vieclam'
+    ));
+}
+add_action('init', 'vieclam_to_xkld_period_types');
+
+// ページと送り出し機関
+// function recruit_to_page_types() {
+//     // Posts 2 Posts プラグインが有効化されてるかチェック
+//     if ( !function_exists( 'p2p_register_connection_type' ) )
+//         return;
+//     p2p_register_connection_type(
+//         array(
+//             'name' => 'recruit_to_page',
+//             'from' => 'delivery_period',
+//             'to' => 'page'
+//         )
+//     );
+// }
+// add_action( 'wp_loaded', 'recruit_to_page_types' );
+
+
+// 人気記事出力用関数
+function set_post_views($postID)
+{
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if ($count == '')
+    {
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }
+    else
+    {
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+/* --- ADD COLUMN TO VIECLAM --- */
+// Add new column
+function post_columns_head($defaults)
+{
+  global $post;
+  if ($post->post_type=='vieclam') {
+    $defaults['post_company'] = 'Company';
+    $defaults['post_deadline'] = 'Deadline';    
+  }
+  return $defaults;
+}
+
+// Show the column
+function post_columns_content($column_name, $post_ID)
+{ 
+    if ($column_name == 'post_company')
+    {    
+        global $post; 
+        $connected = new WP_Query(array(
+            'connected_type' => 'vieclam_to_xkld',
+            'connected_items' => $post,
+            'nopaging' => true
+        ));
+        while ($connected->have_posts()) : $connected->the_post();
+        ?><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><?php
+        endwhile;
+        wp_reset_postdata();
+    }
+    if ($column_name == 'post_deadline')
+    {
+        the_field('募集期限');
+    }
+}
+add_filter('manage_posts_columns', 'post_columns_head');
+add_action('manage_posts_custom_column', 'post_columns_content', 10, 2);
+
+// 並び替え条件パラメータを追加
+function add_sort_query_vars($public_query_vars)
+{
+    $public_query_vars[] = 'sort';
+
+    return $public_query_vars;
+}
+add_filter('query_vars', 'add_sort_query_vars');
+
+// 並び替え処理を設定
+function change_posts_per_page($query)
+{
+    if ($query->is_search() || $query->is_archive())
+    {
+        if (!empty($_GET['sort']))
+        {
+            if ($_GET['sort'] == 'DATE_DESC')
+            {
+                $query->set('orderby', array(
+                    'date' => 'DESC'
+                ));
+            }
+            elseif ($_GET['sort'] == 'DATE_ASC')
+            {
+                $query->set('orderby', array(
+                    'date' => 'ASC'
+                ));
+            }
+            elseif ($_GET['sort'] == 'SALARY_DESC')
+            {
+                $query->set('key', '月給');
+                $query->set('orderby', array(
+                    'meta_value_num' => 'DESC',
+                    // 'date' => 'DESC',
+                    
+                ));
+            }
+            elseif ($_GET['sort'] == 'SALARY_ASC')
+            {
+                $query->set('key', '月給');
+                $query->set('orderby', array(
+                    'meta_value_num' => 'ASC',
+                    // 'date' => 'ASC',
+                    
+                ));
+            }
+            elseif ($_GET['sort'] == 'DEADLINE_DESC')
+            {
+                $query->set('key', '募集期限');
+                $query->set('orderby', array(
+                    'meta_value_num' => 'DESC',
+                    // 'date' => 'DESC',
+                    
+                ));
+            }
+            elseif ($_GET['sort'] == 'DEADLINE_ASC')
+            {
+                $query->set('key', '募集期限');
+                $query->set('orderby', array(
+                    'meta_value_num' => 'ASC',
+                    // 'date' => 'ASC',
+                    
+                ));
+            }
+        }
+    }
+}
+
+add_action('pre_get_posts', 'change_posts_per_page');
+
+/**
+ * formにデフォルト値をユーザー管理プラグインから取得し入れ込む
+ */
+function my_form_tag_filter($tag)
+{
+    if (!is_array($tag)) return $tag;
+
+    //この中に各種ゆーざー情報が入ってくる。
+    global $current_user;
+
+    $email = $current_user->user_email;
+    $u_name = $current_user->u_name;
+    $u_tel = $current_user->tel;
+
+    //formに設定されているnameが入ってくる
+    $name = $tag['name'];
+
+    if (isset($email))
+    {
+        if ($name == 'your-email') $tag['values'] = (array)$email;
+    }
+
+    if (isset($u_name))
+    {
+        if ($name == 'your-name') $tag['values'] = (array)$u_name;
+    }
+
+    if (isset($u_name))
+    {
+        if ($name == 'your-tel') $tag['values'] = (array)$u_tel;
+    }
+
+    return $tag;
+}
+add_filter('wpcf7_form_tag', 'my_form_tag_filter', 11);
+
+// 遷移元の記事タイトルをcontactformに反映
+function wpcf7_get_post_data($tag)
+{
+    if (!is_array($tag)) return $tag;
+    $post_id = (isset($_GET['post_id']) && $_GET['post_id']) ? $_GET['post_id'] : false;
+
+    if ($post_id)
+    {
+        if ($tag['name'] == 'post-title')
+        {
+            $title = get_the_title($post_id);
+            $tag['values'] = array(
+                $title
+            );
+        }
+    }
+    return $tag;
+}
+add_filter('wpcf7_form_tag', 'wpcf7_get_post_data', 11);
+
+/*------ Page Slug Body Class------*/
+function add_slug_body_class($classes)
+{
+    global $post;
+    if (isset($post))
+    {
+        $classes[] = $post->post_type . '-' . $post->post_name;
+    }
+    return $classes;
+}
+add_filter('body_class', 'add_slug_body_class');
+
+//add logo
+function config_custom_logo()
+{
+    add_theme_support('custom-logo');
+}
+
+add_action('after_setup_theme', 'config_custom_logo');
+
+function sougou_setup_image_size()
+{
+    add_theme_support('html5', array(
+        'comment-list',
+        'comment-form',
+        'search-form',
+        'gallery',
+        'caption'
+    ));
+
+    // 画像サイズの指定
+    //add_image_size('recommend_thumb', 113, 70, true);
+    add_image_size('job_thumb', 991, 734, true);
+    add_image_size('top_new_job', 270, 200, true);
+    add_image_size('single-image', 626, 392, true);
+}
+add_action('after_setup_theme', 'sougou_setup_image_size');
+
+function sougou_slider_home()
+{
+    $slider_home = get_field('slider_home', 'option');
+
+    if ($slider_home)
+    {
+        echo '<div class="session banner-home">';
+        echo '<div class="slick-1">';
+        foreach ($slider_home as $slider)
+        {
+            $slider_title = $slider['titile'];
+            $slider_images = $slider['images'];
+            $slider_images_sp = $slider['images_sp'];
+?>
+            <div class="item"> 
+              <div class="wrap pc" style="background-image: url(<?php echo $slider_images; ?>)">
+                <div class="content-slider"><?php echo $slider_title ?></div>                    
+              </div>
+              <div class="wrap sp" style="background-image: url(<?php echo $slider_images_sp; ?>)">
+                <div class="content-slider"><?php echo $slider_title ?></div>                    
+              </div>
+            </div>      
+          <?php
+        }
+        echo '</div>';
+        echo '</div>';
+    }
+}
+
+function sougou_work_scenery_home()
+{ ?>
+  <div class="work_scenery">
+      <div class="wrap">
+          <div class="wrap-content">
+              <div class="title">Chương trình thực tập sinh kỹ năng là gì?</div>
+              <div class="content">
+                <div class="images">
+                  <img src="<?php echo get_stylesheet_directory_uri() . '/images/flat.jpg'; ?>">
+                </div>
+                <div class="content-text">
+                    <p>Đây là một dự án phát triển nguồn nhân lực quốc tế do chính phủ Nhật Bản thành lập. Với mục đích giúp nguồn nhân lực tiếp thu công nghệ trình độ cao và  đào tạo nhân tài mong muốn dẫn dắt sự phát triển của đất nước đó.Từ tháng 11 năm 2017 “phương pháp đào tạo kỹ năng “ được thi hành và bắt đầu triển khai với chế độ lao động người nước ngoài.</p>
+                </div>
+              </div>
+              <p class="button button-blue"><a href="<?php echo home_url('/about'); ?>"><span>Xem chi tiết</span></a></p>
+          </div>
+      </div>
+  </div>
+<?php
+}
+
+/* サイドバー
+ * ---------------------------------------- */
+register_sidebar(array(
+    'name' => 'フッター ',
+    'id' => 'footer-widget',
+    'description' => 'フッター ',
+    'before_widget' => '<div id="%1$s" class="%2$s side-widget"><div class="side-widget-inner">',
+    'after_widget' => '</div></div>',
+    'before_title' => '<h4 class="side-title"><span class="side-title-inner">',
+    'after_title' => '</span></h4>'
+));
+
+register_sidebar(array(
+    'name' => esc_html__('SP navi', 'xeory-base') ,
+    'id' => 'sp_nav',
+    'description' => esc_html__('Add widgets here.', 'xeory-base') ,
+    'before_widget' => '<section id="%1$s" class="widget spnav-widget %2$s">',
+    'after_widget' => '</section>',
+    'before_title' => '<h3 class="widget-title spnav-widget-title">',
+    'after_title' => '</h3>',
+));
+
+// Side nav toggle btn
+add_action('xeory_append_site-branding', 'xeory_add_sidenav_btn');
+function xeory_add_sidenav_btn()
+{
+    if (is_active_sidebar('sp_nav'))
+    {
+?>
+  <span class="xeory-sp-nav-btn"></span>
+<?php
+    }
+}
+
+add_action('wp_footer', 'xeory_add_sidenav');
+function xeory_add_sidenav()
+{
+    get_template_part('template-parts/template', 'sp-nav-area');
+}
+
+//show button SNS
+function sougou_social_buttons()
+{
+    $twitter_id = get_option('twitter_id');
+    $facebook_page_url = get_option('facebook_page_url');
+?>
+  <ul class="social">
+    <li class="facebook"><a target="_blank" href="https://facebook.com/<?php echo $facebook_page_url; ?>"><i class="fab fa-facebook-f"></i></a></li>
+    <!-- <li class="twitter"><a target="_blank" href="https://twitter.com/<?php echo $twitter_id; ?>"><i class="fab fa-twitter"></i></a></li> -->
+    
+  </ul>
+
+  <?php
+}
+
+function sougou_verified_by()
+{
+?>
+  <!-- <div class="verified">
+    <span>verified by</span><span><img src="<?php echo get_stylesheet_directory_uri() . '/images/dadangky.png' ?>"></span>
+  </div> -->
+  <?php
+}
+
+function bzbsk_cat_w_date_is_single()
+{
+    $category = get_the_category(); //カテゴリの配列
+    $date = get_the_time("j.n.Y"); //日付表示はY年n月j日のように変更可
+    $modified = get_the_modified_date("j.n.Y"); //更新日
+    $length = count($category);
+    $num = 0;
+
+    echo "<ul class=\"entry-meta\">
+      <li class=\"cat\">";
+
+    //その投稿が属しているカテゴリーの数だけループさせる
+    foreach ($category as $cat)
+    {
+        echo '<a href="' . get_category_link($cat->cat_ID) . '">' . $cat->name . '</a>';
+        $num++;
+
+        if ($num !== $length)
+        {
+            echo '';
+        }
+    }
+
+    echo "</li>
+    <li class=\"date\"><time itemprop=\"datePublished\" datetime=\"" . get_the_time('c') . "\">" . $date . "</time></li>\n";
+
+    if ($modified > $date)
+    {
+        echo "<li class=\"modified\">(Cập nhập：<time itemprop=\"dateModified\" datetime=\"" . get_the_modified_time('c') . "\">" . $modified . "</time>)</li>\n";
+    }
+
+    echo "</ul>";
+}
+
+function wpdocs_theme_add_editor_styles()
+{
+    add_editor_style('css/admin/editor-style.css');
+}
+add_action('admin_init', 'wpdocs_theme_add_editor_styles');
+
+add_action('wp_footer', 'add_thanks_page');
+function add_thanks_page()
+{
+    echo <<< EOD
+<script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+  location = 'https://viecjapan.vn/thanks/';
+}, false );
+</script>
+EOD;
+    
+}
+
+// login redirect to top pgae
+function _my_redirect_to($url, $service, $context)
+{
+    $location = "https://viecjapan.vn";
+    return $location;
+}
+// Add filter.
+add_filter('gianism_redirect_to', '_my_redirect_to', 10, 3);
+
+// hide admin bar
+if (!current_user_can('manage_options'))
+{
+    show_admin_bar(false);
+}
+
+function my_post_count_queries($query)
+{
+    if (!is_admin() && $query->is_main_query())
+    {
+        if (is_search())
+        {
+            $query->set('posts_per_page', -1);
+        }
+    }
+}
+add_action('pre_get_posts', 'my_post_count_queries');
+

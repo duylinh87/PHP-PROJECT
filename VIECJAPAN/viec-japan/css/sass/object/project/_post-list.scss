@@ -1,0 +1,137 @@
+.page-post-list{
+	#main{
+		padding: 45px 0;
+		
+		@media screen and ( max-width: 991px ){
+			padding-top: 0;
+		}
+		
+		h1{
+			font-size: 26px;
+			font-weight: 700;
+			line-height: 57px;
+			color: #333333;
+			text-align: center;
+			margin-bottom: 	43px;
+		}
+
+		.content-page{
+			padding: 60px 0;
+			background: #fff7f7;
+			margin-left: calc(((100vw - 100%) / 2 ) * -1);
+  		margin-right: calc(((100vw - 100%) / 2 ) * -1);
+  		
+  		.wrap{
+  			max-width: 1000px;
+  			
+  			ul{
+  				border: 1px solid #a3a3a3;
+	  			background-color: #ffffff;
+	  			padding: 37px 40px 35px;
+	  			
+	  			@media screen and ( max-width: 991px ){
+	  				padding-left: 12px;
+	  				padding-right: 12px;
+	  			}
+	  			
+					li{
+						line-height: 20px;
+						font-size: 15px;
+						margin-bottom: 25px;
+						
+						@media screen and ( max-width: 550px ){
+							border-bottom: 1px solid $border-color;
+							padding-bottom:16px;
+							margin-bottom: 16px;
+							
+							&:last-child{
+								margin-bottom: 0;
+								padding-bottom: 0;
+								border: 0;
+							}
+						}
+
+						&:first-child{
+							a{
+								span{
+									&:before{
+										content:'NEW';
+										font-size: 11px;
+										position: relative;
+										border:1px solid $main-color;
+										padding:1px 5px;
+										color:$main-color;
+										margin-right: 10px;
+									}
+								}
+							}
+						}
+
+						&:last-child{
+							margin-bottom: 0;
+						}
+
+						a{
+							line-height:inherit;
+							font-size: inherit;
+							color:$text-color;
+							
+							&:hover{
+								text-decoration: none;
+								
+								span{
+									color:$main-color;
+								}
+							}
+							
+							time{
+								width: 110px;
+								display: inline-block;
+								vertical-align: top;
+								@media screen and ( max-width: 550px ){
+									margin-bottom: 12px;
+								}
+								
+							}
+
+							span{
+								width: calc(100% - 116px);
+								display: inline-block;
+								vertical-align: top;
+							}
+
+							time,
+							span{
+								@media screen and ( max-width: 550px ){
+									width: 100%;
+								}
+							}
+						}
+					}
+				}
+  		}
+		}
+	}
+}
+
+.paged {
+	#main{
+		.content-page{
+			.wrap{
+			 	ul{
+			 		 li{
+			 		 	&:first-child{
+			 		 		 a{
+			 		 		 	 span{
+				 		 		 	 	&:before{
+				 		 		 	 		content:none;
+				 		 		 	 	}
+			 		 		 	 }
+			 		 		 }
+			 		 	}
+			 		}
+			 	}
+			}
+		}
+	} 
+}

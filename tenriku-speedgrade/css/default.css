@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* ===================================================================
+ style info : デフォルト設定
+ author     :
+=================================================================== */
+@font-face {
+  font-family: "Yu Gothic",sans-serif;
+  src: url("../fonts/yugothib.ttf");
+}
+
+body *{
+  font-family: "Yu Gothic",sans-serif !important;
+}
+input, textarea {
+  font-family: "Yu Gothic",sans-serif !important;
+}
+.yu{
+  font-family: "Yu Gothic",sans-serif !important;
+}
+.me{
+  font-family: "Meiryo",sans-serif;
+}
+.ms{
+  font-family: "MS PGothic",sans-serif;
+}
+a {
+  color:#0978c5;
+  text-decoration:none;
+}
+a:link {
+}
+a:visited {
+}
+a:hover {
+  cursor:pointer;
+  text-decoration:underline;
+}
+a:active {
+}
+ul,ol{
+  list-style:none;
+  list-style-type:none;
+}
+ul,li{
+  list-style: none outside none;
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
